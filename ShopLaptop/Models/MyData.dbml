@@ -28,7 +28,7 @@
   </Table>
   <Table Name="dbo.DanhGia" Member="DanhGias">
     <Type Name="DanhGia">
-      <Column Name="madanhgia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="madanhgia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="noidung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="vote" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -85,7 +85,7 @@
       <Column Name="hardware" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="manhinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="ngaycapnhat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="soluongton" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="soluongton" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="pin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="trangthai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Laptop_ChiTietDonHang" Member="ChiTietDonHangs" ThisKey="malaptop" OtherKey="malaptop" Type="ChiTietDonHang" />

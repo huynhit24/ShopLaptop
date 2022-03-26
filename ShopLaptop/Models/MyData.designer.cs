@@ -738,7 +738,7 @@ namespace ShopLaptop.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madanhgia", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_madanhgia", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int madanhgia
 		{
 			get
@@ -1596,7 +1596,7 @@ namespace ShopLaptop.Models
 		
 		private System.Nullable<System.DateTime> _ngaycapnhat;
 		
-		private System.Nullable<System.DateTime> _soluongton;
+		private System.Nullable<int> _soluongton;
 		
 		private string _pin;
 		
@@ -1642,7 +1642,7 @@ namespace ShopLaptop.Models
     partial void OnmanhinhChanged();
     partial void OnngaycapnhatChanging(System.Nullable<System.DateTime> value);
     partial void OnngaycapnhatChanged();
-    partial void OnsoluongtonChanging(System.Nullable<System.DateTime> value);
+    partial void OnsoluongtonChanging(System.Nullable<int> value);
     partial void OnsoluongtonChanged();
     partial void OnpinChanging(string value);
     partial void OnpinChanged();
@@ -1928,8 +1928,8 @@ namespace ShopLaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soluongton", DbType="DateTime")]
-		public System.Nullable<System.DateTime> soluongton
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soluongton", DbType="Int")]
+		public System.Nullable<int> soluongton
 		{
 			get
 			{

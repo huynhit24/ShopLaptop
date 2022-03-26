@@ -31,5 +31,10 @@ namespace ShopLaptop.Models
         {
             return data.NhuCaus.ToList();
         }
+
+        public List<ChuDe> GetListChuDe()
+        {
+            return data.ChuDes.ToList();
+        }
     }
 }

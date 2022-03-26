@@ -156,11 +156,10 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="books" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                                             <div class="dropdown-menu" aria-labelledby="books">
-                                                <a class="dropdown-item" href="category.html">Adventure</a>
-                                                <a class="dropdown-item" href="category.html">Horror</a>
-                                                <a class="dropdown-item" href="category.html">Romantic</a>
-                                                <a class="dropdown-item" href="category.html">Children's</a>
-                                                <a class="dropdown-item" href="category.html">Non-Fiction</a>
+                                                @foreach (var item in home.GetListChuDe())
+                                                {
+                                                    <a class="dropdown-item" href="category.html">@item.tenchude</a>
+                                                }
                                             </div>
                                         </li>
                                     </ul>
@@ -200,11 +199,12 @@
                                         </address>
                                     </div>
                                     <div class="col-12">
-                                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.facebook.com/huynh2357/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/Huynhjs69" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.pinterest.com/fulldevs/_saved/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="https://www.instagram.com/huynh14097/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.youtube.com/watch?v=RQZh23h7E48&t=52s" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://github.com/huynhit24"><i class="fab fa-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -226,13 +226,13 @@
                                     <div class="col-12">
                                         <ul class="footer-nav">
                                             <li>
-                                                <a href="#">Trang chủ</a>
+                                                <a href="@Url.Action("Index","Home")">Trang chủ</a>
                                             </li>
                                             <li>
-                                                <a href="#">Liên hệ</a>
+                                                <a href="@Url.Action("Contact","Home")">Liên hệ</a>
                                             </li>
                                             <li>
-                                                <a href="#">Giới thiệu</a>
+                                                <a href="@Url.Action("About","Home")">Giới thiệu</a>
                                             </li>
                                             <li>
                                                 <a href="#">Chính sách bảo mật</a>

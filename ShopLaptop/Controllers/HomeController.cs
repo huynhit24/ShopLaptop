@@ -9,6 +9,7 @@ namespace ShopLaptop.Controllers
 {
     public class HomeController : Controller
     {
+        MyDataDataContext data = new MyDataDataContext();
         public ActionResult Index()
         {
             HomeModel home = new HomeModel();
@@ -29,9 +30,10 @@ namespace ShopLaptop.Controllers
             return View();
         }
 
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            return View();
+            var laptop = data.Laptops.Where(n => n.malaptop == id).FirstOrDefault();
+            return View(laptop);
         }
     }
 }
