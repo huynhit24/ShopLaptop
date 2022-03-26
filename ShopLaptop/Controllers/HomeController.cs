@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopLaptop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace ShopLaptop.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeModel home = new HomeModel();
+            return View(home);
         }
 
         public ActionResult About()

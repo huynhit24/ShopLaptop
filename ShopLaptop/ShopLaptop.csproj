@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,8 +141,11 @@
     <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\phonerang.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\back-to-top.png" />
+    <Content Include="Content\images\banner-laptop-800x300.png" />
     <Content Include="Content\images\banner-levono-2.jpg" />
     <Content Include="Content\images\banner-msi-1.jpg" />
     <Content Include="Content\images\image-1.jpg" />
