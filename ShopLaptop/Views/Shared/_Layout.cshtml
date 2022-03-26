@@ -139,7 +139,7 @@
                                             <div class="dropdown-menu" aria-labelledby="electronics">
                                                 @foreach (var item in home.GetListHang())
                                                 {
-                                                    <a class="dropdown-item" href="category.html">@item.tenhang</a>
+                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
                                                 }
 
                                             </div>

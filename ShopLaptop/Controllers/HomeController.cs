@@ -1,4 +1,5 @@
-﻿using ShopLaptop.Models;
+﻿using PagedList;
+using ShopLaptop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,20 @@ namespace ShopLaptop.Controllers
         {
             var laptop = data.Laptops.Where(n => n.malaptop == id).FirstOrDefault();
             return View(laptop);
+        }
+
+        public ActionResult ListLaptopTheoHangId(int? page, int id)
+        {
+            if (page == null) page = 1;
+            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.mahang == id && n.trangthai == true);
+            int pageSize = 3;
+            int pageNum = page ?? 1;
+            return View(all_laptop.ToPagedList(pageNum, pageSize));
+        }
+
+        public ActionResult ListLaptopTheoNhuCauById()
+        {
+            return View();
         }
     }
 }
