@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,12 +141,34 @@
     <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\phonerang.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\back-to-top.png" />
+    <Content Include="Content\images\banner-laptop-800x300.png" />
+    <Content Include="Content\images\banner-levono-2.jpg" />
+    <Content Include="Content\images\banner-msi-1.jpg" />
     <Content Include="Content\images\image-1.jpg" />
     <Content Include="Content\images\image-2.jpg" />
     <Content Include="Content\images\image-3.jpg" />
     <Content Include="Content\images\image-4.jpg" />
+    <Content Include="Content\images\laptop %281%29.jpg" />
+    <Content Include="Content\images\laptop %2810%29.jpg" />
+    <Content Include="Content\images\laptop %2811%29.jpg" />
+    <Content Include="Content\images\laptop %2812%29.jpg" />
+    <Content Include="Content\images\laptop %2813%29.jpg" />
+    <Content Include="Content\images\laptop %2814%29.jpg" />
+    <Content Include="Content\images\laptop %2815%29.jpg" />
+    <Content Include="Content\images\laptop %2816%29.jpg" />
+    <Content Include="Content\images\laptop %2817%29.jpg" />
+    <Content Include="Content\images\laptop %282%29.jpg" />
+    <Content Include="Content\images\laptop %283%29.jpg" />
+    <Content Include="Content\images\laptop %284%29.jpg" />
+    <Content Include="Content\images\laptop %285%29.jpg" />
+    <Content Include="Content\images\laptop %286%29.jpg" />
+    <Content Include="Content\images\laptop %287%29.jpg" />
+    <Content Include="Content\images\laptop %288%29.jpg" />
+    <Content Include="Content\images\laptop %289%29.jpg" />
     <Content Include="Content\images\slider-1.jpg" />
     <Content Include="Content\images\slider-2.jpg" />
     <Content Include="Content\images\slider-3.jpg" />
