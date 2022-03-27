@@ -132,7 +132,7 @@
                                 <div class="collapse navbar-collapse" id="mainNav">
                                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="electronics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hãng Laptop</a>
@@ -149,7 +149,7 @@
                                             <div class="dropdown-menu" aria-labelledby="fashion">
                                                 @foreach (var item in home.GetListNhuCau())
                                                 {
-                                                    <a class="dropdown-item" href="category.html">@item.tennhucau</a>
+                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
                                                 }
                                             </div>
                                         </li>
@@ -199,12 +199,12 @@
                                         </address>
                                     </div>
                                     <div class="col-12">
-                                        <a href="https://www.facebook.com/huynh2357/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://twitter.com/Huynhjs69" class="social-icon"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.pinterest.com/fulldevs/_saved/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                                        <a href="https://www.instagram.com/huynh14097/" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                        <a href="https://www.youtube.com/watch?v=RQZh23h7E48&t=52s" class="social-icon"><i class="fab fa-youtube"></i></a>
-                                        <a href="https://github.com/huynhit24"><i class="fab fa-github"></i></a>
+                                        <a href="https://www.facebook.com/huynh2357/" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/Huynhjs69" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.pinterest.com/fulldevs/_saved/" class="social-icon" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="https://www.instagram.com/huynh14097/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.youtube.com/watch?v=RQZh23h7E48&t=52s" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://github.com/huynhit24/" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -295,6 +295,21 @@
         </div>
 
     </div>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/62402d2e0bfe3f4a876fe5bf/1fv5b0vji';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!--End of Tawk.to Script-->
+    <div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Chúng tôi có thể giúp gì cho bạn!" data-autopopup="0" data-width="" data-height=""></div>
     <div class='phonering-alo-phone phonering-alo-green phonering-alo-show' id='phonering-alo-phoneIcon'>
 
         <div class='phonering-alo-ph-circle'></div>
@@ -327,5 +342,6 @@
     <script type="text/javascript" src="~/Content/js/script.js"></script>
     <script type="text/javascript" src="~/Content/js/scripts.js"></script>
     @RenderSection("scripts", required: false)
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
 </body>
 </html>

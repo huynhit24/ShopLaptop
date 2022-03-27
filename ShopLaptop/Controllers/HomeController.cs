@@ -46,9 +46,13 @@ namespace ShopLaptop.Controllers
             return View(all_laptop.ToPagedList(pageNum, pageSize));
         }
 
-        public ActionResult ListLaptopTheoNhuCauById()
+        public ActionResult ListLaptopTheoNhuCauById(int? page, int id)
         {
-            return View();
+            if (page == null) page = 1;
+            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.manhucau == id && n.trangthai == true);
+            int pageSize = 3;
+            int pageNum = page ?? 1;
+            return View(all_laptop.ToPagedList(pageNum, pageSize));
         }
     }
 }

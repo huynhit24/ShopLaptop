@@ -247,6 +247,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\ListLaptopTheoHangId.cshtml" />
+    <Content Include="Views\Home\ListLaptopTheoNhuCauById.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
