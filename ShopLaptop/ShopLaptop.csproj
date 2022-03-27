@@ -127,11 +127,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\MyData.designer.cs">
       <AutoGen>True</AutoGen>
@@ -176,6 +178,7 @@
     <Content Include="Content\images\laptop %287%29.jpg" />
     <Content Include="Content\images\laptop %288%29.jpg" />
     <Content Include="Content\images\laptop %289%29.jpg" />
+    <Content Include="Content\images\logo-momo.png" />
     <Content Include="Content\images\slider-1.jpg" />
     <Content Include="Content\images\slider-2.jpg" />
     <Content Include="Content\images\slider-3.jpg" />
@@ -251,6 +254,10 @@
     <Content Include="Views\Home\ListLaptopTheoNhuCauById.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\XacnhanDonhang.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
