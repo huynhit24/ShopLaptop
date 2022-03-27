@@ -31,14 +31,25 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <h5 class="fw-bolder">@item.tenlaptop</h5>
+                               
                                 <!-- Product price-->
-                                $40.00 - $80.00
+                                @item.giaban đ
+                            </div>
+                            <div class="text-center">
+                                <!--Product star-->
+                                <small>
+                                    <i class="fas fa-star" style="color:orange"></i>
+                                    <i class="fas fa-star" style="color:orange"></i>
+                                    <i class="fas fa-star" style="color:orange"></i>
+                                    <i class="far fa-star" style="color:orange"></i>
+                                    <i class="far fa-star" style="color:orange"></i>
+                                </small>
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            <div class="text-center"><a class="btn btn-outline-success mt-auto" href="@Url.Action( "Details", "Home", new { id = item.malaptop})"><i class="fa fa-eye"></i> Xem chi tiết</a></div>
                         </div>
                     </div>
                 </div>
