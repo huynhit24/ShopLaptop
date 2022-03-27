@@ -84,10 +84,10 @@
                             <div class="col-auto">
                                 <ul class="top-nav">
                                     <li>
-                                        <a href="register.html"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
+                                        <a href="@Url.Action("DangKy","NguoiDung")"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
                                     </li>
                                     <li>
-                                        <a href="login.html"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
+                                        <a href="@Url.Action("DangNhap","NguoiDung")"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
                                     </li>
                                 </ul>
                             </div>
@@ -117,8 +117,9 @@
                                     <i class="fas fa-heart me-2"></i><span id="header-favorite">0</span>
                                 </a>
                                 <a href="cart.html" class="header-item">
-                                    <i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">2</span>
-                                    <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">0 đ</span>
+                                    @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")
+                                    @*<i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">2</span>
+                                    <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">0 đ</span>*@
                                 </a>
                             </div>
                         </div>
@@ -139,7 +140,7 @@
                                             <div class="dropdown-menu" aria-labelledby="electronics">
                                                 @foreach (var item in home.GetListHang())
                                                 {
-                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
+                                                <a class="dropdown-item" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
                                                 }
 
                                             </div>
@@ -149,7 +150,7 @@
                                             <div class="dropdown-menu" aria-labelledby="fashion">
                                                 @foreach (var item in home.GetListNhuCau())
                                                 {
-                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
+                                                <a class="dropdown-item" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
                                                 }
                                             </div>
                                         </li>
@@ -158,7 +159,7 @@
                                             <div class="dropdown-menu" aria-labelledby="books">
                                                 @foreach (var item in home.GetListChuDe())
                                                 {
-                                                    <a class="dropdown-item" href="category.html">@item.tenchude</a>
+                                                <a class="dropdown-item" href="category.html">@item.tenchude</a>
                                                 }
                                             </div>
                                         </li>
