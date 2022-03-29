@@ -5,70 +5,88 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DatHang</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<header class="py-5" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(156,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+    <div class="container px-1 px-lg-1 my-1">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Đơn đặt hàng</h1>
+            <p class="lead fw-normal mb-0" style="color: #4cff00;">Cám ơn quý khách đã lựa chọn sản phẩm từ iLaptop! 🧡🧡🧡</p>
+        </div>
+    </div>
+</header>
+<div class="row" style="margin-top: 10px;margin-bottom:10px;">
+    <div class="col-12">
+        <p>
+            @*@Html.ActionLink("Create New", "Create")*@
+            <a class="btn text-white" style="background-color: orangered" href="@Url.Action("Index", "Home")"> <i class="fa fa-shopping-basket"></i> Mua thêm?</a>
+        </p>
+    </div>
+</div>
+<table class="table table-bordered tab">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.malaptop)
+        @*<th>
+                @Html.DisplayNameFor(model => model.malaptop)
+            </th>*@
+        <th class="text-center" style="vertical-align:middle">
+            @Html.DisplayNameFor(model => model.tenlaptop) <i class="fa fa-laptop"></i>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tenlaptop)
+        <th class="text-center" style="vertical-align:middle">
+            @Html.DisplayNameFor(model => model.hinh) <i class="fa fa-image"></i>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hinh)
+        <th class="text-center" style="vertical-align:middle">
+            @Html.DisplayNameFor(model => model.giaban) <i class="fa fa-money-bill"></i>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.giaban)
+        <th class="text-center" style="vertical-align:middle">
+            @Html.DisplayNameFor(model => model.iSoluong) <i class="fa fa-sort-numeric-up"></i>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iSoluong)
+        <th class="text-center" style="vertical-align:middle">
+            @Html.DisplayNameFor(model => model.dThanhTien) <i class="fa fa-money-bill-wave-alt"></i>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dThanhTien)
-        </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.malaptop)
-            </td>
-            <td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.malaptop)
+                </td>*@
+            <td class="text-center" style="vertical-align:middle">
                 @Html.DisplayFor(modelItem => item.tenlaptop)
             </td>
-            <td>
+            <td class="text-center" style="vertical-align:middle">
                 <img src="~/Content/images/@item.hinh" width="100" height="250" />
             </td>
             @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @id = item.malaptop }))
             {
-                <td>
-                    @Html.DisplayFor(modelItem => item.giaban) VNĐ
+                <td class="text-center" style="vertical-align:middle">
+                    @*@Html.DisplayFor(modelItem => item.giaban) VNĐ*@
+                    @String.Format("{0:0,0}", item.giaban) VNĐ
                 </td>
-                <td>
+                <td class="text-center" style="vertical-align:middle">
                     @Html.DisplayFor(modelItem => item.iSoluong)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.dThanhTien)
+                <td class="text-center" style="vertical-align:middle">
+                    @*@Html.DisplayFor(modelItem => item.dThanhTien)*@
+                    @String.Format("{0:0,0}", item.dThanhTien) VNĐ
                 </td>
             }
-        <tr style="font-weight: bold; text-align:right; color:red">
-            <td colspan="3">
-                Số lượng sách: @ViewBag.Tongsoluong
-            </td>
-            <td colspan="4">Số loại sách: @ViewBag.Tongsoluongsanpham </td>
-            <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien)VNĐ </td>
-        </tr>
-        <tr style="font-weight: bold; text-align:right">
-            <td colspan="6"> @Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")</td>
-        </tr>
+
         </tr>
     }
+    <tr style="font-weight: bold; text-align:right; color:red">
+        <td colspan="7">
+            <div>
+                <p>Số lượng sách: @ViewBag.Tongsoluong</p>
+                <p>Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</p>
+            </div>
+        </td>
+    </tr>
+    <tr style="font-weight: bold; text-align:right">
+        <td colspan="6">
+            @*@Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")*@
+            <a class="btn text-white" style="background-color: #07f3ba" href="@Url.Action("GioHang", "GioHang")"> <i class="fa fa-backward"></i> Trỏ về giỏ hàng</a>
+            <a class="btn text-white" style="background-color: #0fcdef" href="@Url.Action("Index", "Home")"> <i class="fa fa-cart-arrow-down"></i> In hóa đơn</a>
+        </td>
+    </tr>
 
 </table>
 
