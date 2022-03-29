@@ -156,7 +156,11 @@
     <Content Include="Content\images\back-to-top.png" />
     <Content Include="Content\images\banner-laptop-800x300.png" />
     <Content Include="Content\images\banner-levono-2.jpg" />
+    <Content Include="Content\images\banner-levono-2.png" />
+    <Content Include="Content\images\banner-levono.png" />
     <Content Include="Content\images\banner-msi-1.jpg" />
+    <Content Include="Content\images\banner-msi-1.png" />
+    <Content Include="Content\images\banner-vang.png" />
     <Content Include="Content\images\image-1.jpg" />
     <Content Include="Content\images\image-2.jpg" />
     <Content Include="Content\images\image-3.jpg" />
