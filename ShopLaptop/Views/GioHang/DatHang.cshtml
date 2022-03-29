@@ -4,7 +4,7 @@
     ViewBag.Title = "DatHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 <header class="py-5" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(156,9,121,1) 35%, rgba(0,212,255,1) 100%);">
     <div class="container px-1 px-lg-1 my-1">
         <div class="text-center text-white">
@@ -21,7 +21,7 @@
         </p>
     </div>
 </div>
-<table class="table table-bordered tab">
+<table @*id="tblStocks"*@ id="tbl_exporttable_to_xls" class="table table-bordered tab">
     <tr>
         @*<th>
                 @Html.DisplayNameFor(model => model.malaptop)
@@ -83,8 +83,9 @@
     <tr style="font-weight: bold; text-align:right">
         <td colspan="6">
             @*@Html.ActionLink("Trở về giỏ hàng", "Giohang", "GioHang")*@
-            <a class="btn text-white" style="background-color: #07f3ba" href="@Url.Action("GioHang", "GioHang")"> <i class="fa fa-backward"></i> Trỏ về giỏ hàng</a>
-            <a class="btn text-white" style="background-color: #0fcdef" href="@Url.Action("Index", "Home")"> <i class="fa fa-cart-arrow-down"></i> In hóa đơn</a>
+            <a class="btn text-white" style="background-color: #0fcdef" href="@Url.Action("GioHang", "GioHang")"> <i class="fa fa-backward"></i> Trỏ về giỏ hàng</a>
+            @*<a class="btn text-white" style="background-color: #0fcdef" href="@Url.Action("Index", "Home")"> <i class="fa fa-cart-arrow-down"></i> In hóa đơn</a>*@
+            <button class="btn text-white" style="background-color: #0fa573" onclick="ExportToExcel('xlsx')"> <i class="fa fa-file-excel"></i> In đơn đặt hàng</button>
         </td>
     </tr>
 
@@ -166,4 +167,13 @@
         }
     }).render('#paypal-button-container');
 //This function displays Smart Payment Buttons on your web page.
+</script>
+<script>
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('tbl_exporttable_to_xls');
+        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
 </script>
