@@ -24,11 +24,34 @@ namespace ShopLaptop.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(FormCollection collection, LienHe lh)
+        {
+            var hoten = collection["hoten"];
+            var email = collection["email"];
+            var dienthoai = collection["dienthoai"];
+            var website = collection["website"];
+            var noidung = collection["noidung"];
+            /*var trangthai = collection["trangthai"];*/
+
+            lh.hoten = hoten;
+            lh.email = email;
+            lh.dienthoai = dienthoai;
+            lh.website = website;
+            lh.noidung = noidung;
+            lh.trangthai = true;
+            
+            data.LienHes.InsertOnSubmit(lh);
+            data.SubmitChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)

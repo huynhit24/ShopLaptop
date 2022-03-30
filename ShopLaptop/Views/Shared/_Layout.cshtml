@@ -140,7 +140,7 @@
                                             <div class="dropdown-menu" aria-labelledby="electronics">
                                                 @foreach (var item in home.GetListHang())
                                                 {
-                                                <a class="dropdown-item" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
+                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoHangId","Home", new { id = item.mahang})">@item.tenhang</a>
                                                 }
 
                                             </div>
@@ -150,7 +150,7 @@
                                             <div class="dropdown-menu" aria-labelledby="fashion">
                                                 @foreach (var item in home.GetListNhuCau())
                                                 {
-                                                <a class="dropdown-item" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
+                                                    <a class="dropdown-item" href="@Url.Action("ListLaptopTheoNhuCauById","Home", new { id = item.manhucau})">@item.tennhucau</a>
                                                 }
                                             </div>
                                         </li>
@@ -159,9 +159,18 @@
                                             <div class="dropdown-menu" aria-labelledby="books">
                                                 @foreach (var item in home.GetListChuDe())
                                                 {
-                                                <a class="dropdown-item" href="category.html">@item.tenchude</a>
+                                                    <a class="dropdown-item" href="category.html">@item.tenchude</a>
                                                 }
                                             </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("About","Home")"><i class="fa fa-book"></i> Giới thiệu</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Contact","Home")"><i class="fa fa-address-card"></i> Liên hệ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fa fa-atlas"></i> Đặt quảng cáo</a>
                                         </li>
                                     </ul>
                                 </div>
