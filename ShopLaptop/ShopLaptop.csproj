@@ -166,6 +166,8 @@
     <Content Include="Content\images\bot.png" />
     <Content Include="Content\images\cod-payment.jpg" />
     <Content Include="Content\images\dang-ky-bo-cong-thuong.png" />
+    <Content Include="Content\images\dat-hang-thanh-cong.png" />
+    <Content Include="Content\images\dathangthanhcong.png" />
     <Content Include="Content\images\dependabot.png" />
     <Content Include="Content\images\ducdat.png" />
     <Content Include="Content\images\Florentino.jpg" />
@@ -206,6 +208,7 @@
     <Content Include="Content\images\slider-1.jpg" />
     <Content Include="Content\images\slider-2.jpg" />
     <Content Include="Content\images\slider-3.jpg" />
+    <Content Include="Content\images\thanhtoanthanhcong.png" />
     <Content Include="Content\images\visa-payment.jpg" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
