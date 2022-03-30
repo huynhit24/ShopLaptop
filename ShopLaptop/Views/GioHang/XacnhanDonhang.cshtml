@@ -3,10 +3,14 @@
     ViewBag.Title = "XacnhanDonhang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Đơn hàng đã được xác nhận</h2>
-<h3>Chúng tôi sẽ giao hàng cho bạn sớm nhất có thể !</h3>
-<p>
-    @Html.ActionLink("Về trang chủ", "Index", "Home")
+<div class="row" style="margin: 20px;">
+    <div class="col-12 text-center">
+        <img src="~/Content/images/dathangthanhcong.png" alt="Alternate Text" />
+    </div>
+</div>
+<h2 class="text-black text-xl-center">Đơn hàng đã được xác nhận</h2>
+<h3 class="text-black text-xl-center">Chúng tôi sẽ giao hàng cho bạn sớm nhất có thể !</h3>
+<p class="text-center" style="margin: 20px;">
+    @Html.ActionLink("Về trang chủ", "Index", "Home", new { @class = "btn btn-success" })
 </p>
 

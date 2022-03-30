@@ -13,16 +13,28 @@
                 <li data-bs-target="#slider" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#slider" data-bs-slide-to="1"></li>
                 <li data-bs-target="#slider" data-bs-slide-to="2"></li>
+                <li data-bs-target="#slider" data-bs-slide-to="3"></li>
+                <li data-bs-target="#slider" data-bs-slide-to="4"></li>
+                <li data-bs-target="#slider" data-bs-slide-to="5"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img src="~/Content/images/banner-msi-1.jpg" class="slider-img">
+                    <img src="~/Content/images/banner-vang.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
-                    <img src="~/Content/images/banner-levono-2.jpg" class="slider-img">
+                    <img src="~/Content/images/banner-msi-1.png" class="slider-img">
                 </div>
                 <div class="carousel-item">
                     <img src="~/Content/images/banner-laptop-800x300.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/banner-levono.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/banner-levono-2.png" class="slider-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/banner-la-gi.jpg" class="slider-img">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
@@ -54,7 +66,7 @@
                                 <div class="row h-100">
                                     <div class="col-12 p-0 mb-3">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})">
-                                            <img src="~/Content/images/@item.hinh" class="img-fluid">
+                                            <img src="~/Content/images/@item.hinh" class="img-fluid" style="width:250px;height:250px;">
                                         </a>
                                     </div>
                                     <div class="col-12 mb-3">
@@ -62,11 +74,11 @@
                                     </div>
                                     <div class="col-12 mb-3">
                                         <small>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                            <i class="fas fa-star" style="color: #ed0fef"></i>
+                                            <i class="fas fa-star" style="color: #ed0fef"></i>
+                                            <i class="fas fa-star" style="color: #ed0fef"></i>
+                                            <i class="far fa-star" style="color: #ed0fef"></i>
+                                            <i class="far fa-star" style="color: #ed0fef"></i>
                                         </small>
                                         <span class="product-price-old">
 
@@ -78,7 +90,7 @@
                                     </div>
                                     <div class="col-12 mb-3 align-self-end">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})" class="btn btn-success"><i class="fas fa-eye me-2"></i>Xem chi tiết</a>
-                                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = item.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-outline-dark"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
+                                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = item.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-outline-warning"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +126,7 @@
                                 <div class="row h-100">
                                     <div class="col-12 p-0 mb-3">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})">
-                                            <img src="~/Content/images/@item.hinh" class="img-fluid">
+                                            <img src="~/Content/images/@item.hinh" class="img-fluid" style="width:250px;height:250px;" />
                                         </a>
                                     </div>
                                     <div class="col-12 mb-3">
@@ -122,11 +134,11 @@
                                     </div>
                                     <div class="col-12 mb-3">
                                         <small>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                            <i class="fas fa-star" style="color: #f20909"></i>
+                                            <i class="fas fa-star" style="color: #f20909"></i>
+                                            <i class="fas fa-star" style="color: #f20909"></i>
+                                            <i class="far fa-star" style="color: #f20909"></i>
+                                            <i class="far fa-star" style="color: #f20909"></i>
                                         </small>
                                         <span class="product-price-old">
 
@@ -174,7 +186,7 @@
                                 <div class="row h-100">
                                     <div class="col-12 p-0 mb-3">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})">
-                                            <img src="~/Content/images/@item.hinh" class="img-fluid">
+                                            <img src="~/Content/images/@item.hinh" class="img-fluid" style="width:250px;height:250px;"/>
                                         </a>
                                     </div>
                                     <div class="col-12 mb-3">
@@ -182,11 +194,11 @@
                                     </div>
                                     <div class="col-12 mb-3">
                                         <small>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                            <i class="fas fa-star" style="color: #62ee0d"></i>
+                                            <i class="fas fa-star" style="color: #62ee0d"></i>
+                                            <i class="fas fa-star" style="color: #62ee0d"></i>
+                                            <i class="far fa-star" style="color: #62ee0d"></i>
+                                            <i class="far fa-star" style="color: #62ee0d"></i>
                                         </small>
                                         <span class="product-price-old">
 
@@ -198,7 +210,7 @@
                                     </div>
                                     <div class="col-12 mb-3 align-self-end">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})" class="btn btn-warning"><i class="fas fa-eye me-2"></i>Xem chi tiết</a>
-                                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = item.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-outline-dark"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
+                                        <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = item.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-outline-danger"><i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ</a>
                                     </div>
                                 </div>
                             </div>

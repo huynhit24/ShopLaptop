@@ -8,11 +8,11 @@
 }
 
 <!-- Header-->
-<header class="bg-dark py-5">
+<header class="py-5" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            <h1 class="display-4 fw-bolder">Danh sách laptop</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Chọn một sản phẩm xem thử!</p>
         </div>
     </div>
 </header>
@@ -32,7 +32,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">@item.tenlaptop</h5>
-                               
+
                                 <!-- Product price-->
                                 @item.giaban đ
                             </div>
@@ -57,6 +57,7 @@
         </div>
     </div>
 </section>
+
 <div style="text-align:center; margin-bottom: 32px;">
     <div class="lead" style="margin-bottom: 20px">
         Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /
@@ -94,5 +95,4 @@
             ul.pagination li a:hover:not(.active) {
                 background-color: #ddd;
             }
-    
 </style>

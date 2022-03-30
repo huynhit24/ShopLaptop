@@ -42,7 +42,7 @@ namespace ShopLaptop.Controllers
             List<GioHang> lstGiohang = Session["GioHang"] as List<GioHang>;
             if (lstGiohang != null)
             {
-                tsl = lstGiohang.Count;
+                tsl = lstGiohang.Sum(n => n.iSoluong);
             }
             return tsl;
 
