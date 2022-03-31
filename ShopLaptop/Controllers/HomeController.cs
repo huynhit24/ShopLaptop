@@ -88,6 +88,15 @@ namespace ShopLaptop.Controllers
             return View(laptop);
         }
 
+        public ActionResult ListLaptopTheoChuDeId(int? page, int id)
+        {
+            if (page == null) page = 1;
+            var all_blog = (from s in data.TinTucs select s).OrderBy(m => m.matin).Where(n => n.machude == id && n.xuatban == true);
+            int pageSize = 3;
+            int pageNum = page ?? 1;
+            return View(all_blog.ToPagedList(pageNum, pageSize));
+        }
+
         public ActionResult ListLaptopTheoHangId(int? page, int id)
         {
             if (page == null) page = 1;
