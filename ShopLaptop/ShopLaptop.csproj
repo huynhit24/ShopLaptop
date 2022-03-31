@@ -172,6 +172,7 @@
     <Content Include="Content\images\ducdat.png" />
     <Content Include="Content\images\Florentino.jpg" />
     <Content Include="Content\images\github.png" />
+    <Content Include="Content\images\huong-dan-cai-win-10.png" />
     <Content Include="Content\images\icon-books.png" />
     <Content Include="Content\images\icon-gift.png" />
     <Content Include="Content\images\icon-return.png" />
@@ -204,6 +205,9 @@
     <Content Include="Content\images\master-card-payment.jpg" />
     <Content Include="Content\images\no-cart.png" />
     <Content Include="Content\images\payoo-payment.jpg" />
+    <Content Include="Content\images\quang-cao-shope.png" />
+    <Content Include="Content\images\quang-cao-side-tiki.png" />
+    <Content Include="Content\images\quang-cao-tiki.png" />
     <Content Include="Content\images\shopping-cart-not-product.png" />
     <Content Include="Content\images\slider-1.jpg" />
     <Content Include="Content\images\slider-2.jpg" />
@@ -288,6 +292,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\QuangCao.cshtml" />
     <Content Include="Views\Home\ListBaiVietTheoChuDeId.cshtml" />
+    <Content Include="Views\Home\PostDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

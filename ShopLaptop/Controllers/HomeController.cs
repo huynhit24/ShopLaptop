@@ -88,6 +88,13 @@ namespace ShopLaptop.Controllers
             return View(laptop);
         }
 
+        public ActionResult PostDetails(int id)
+        {
+            MyDataDataContext data = new MyDataDataContext();
+            var baiviet = data.TinTucs.Where(n => n.matin == id).FirstOrDefault();
+            return View(baiviet);
+        }
+
         public ActionResult ListBaiVietTheoChuDeId(int? page, int id)
         {
             if (page == null) page = 1;

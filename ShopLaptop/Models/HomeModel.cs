@@ -51,5 +51,10 @@ namespace ShopLaptop.Models
         {
             return data.ChuDes.ToList();
         }
+
+        public List<QuangCao> GetListQuangCao()
+        {
+            return data.QuangCaos.ToList();
+        }
     }
 }
