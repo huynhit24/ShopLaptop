@@ -287,7 +287,7 @@
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\QuangCao.cshtml" />
-    <Content Include="Views\Home\ListLaptopTheoChuDeId.cshtml" />
+    <Content Include="Views\Home\ListBaiVietTheoChuDeId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

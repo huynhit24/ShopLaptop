@@ -88,7 +88,7 @@ namespace ShopLaptop.Controllers
             return View(laptop);
         }
 
-        public ActionResult ListLaptopTheoChuDeId(int? page, int id)
+        public ActionResult ListBaiVietTheoChuDeId(int? page, int id)
         {
             if (page == null) page = 1;
             var all_blog = (from s in data.TinTucs select s).OrderBy(m => m.matin).Where(n => n.machude == id && n.xuatban == true);
