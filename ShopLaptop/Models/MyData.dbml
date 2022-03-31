@@ -138,9 +138,9 @@
     <Type Name="TinTuc">
       <Column Name="matin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tieude" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="hinhnen" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="hinhnen" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
       <Column Name="tomtat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="slug" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="slug" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="noidung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="luotxem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ngaycapnhat" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />

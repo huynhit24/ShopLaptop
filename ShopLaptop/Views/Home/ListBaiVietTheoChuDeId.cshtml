@@ -1,18 +1,18 @@
-﻿@model PagedList.IPagedList<ShopLaptop.Models.Laptop>
+﻿@model PagedList.IPagedList<ShopLaptop.Models.TinTuc>
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "ListLaptopTheoNhuCauId";
+    ViewBag.Title = "ListBaiVietTheoChuDeId";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int? temp = 0;
 }
 
 <!-- Header-->
-<header class="py-5" style="background: radial-gradient(circle,rgba(64,94,251,1) 0%, rgba(253,70,107,1) 100%);">
+<header class="py-5" style="background: linear-gradient(45deg, rgba(222,0,36,1) 0%, rgba(99,9,121,1) 35%, rgba(0,212,255,1) 100%);">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Danh sách Laptop</h1>
-            <p class="lead fw-normal text-white-50 mb-0">Chọn 1 sản phẩm để trải nghiệm!</p>
+            <h1 class="display-4 fw-bolder">Danh sách bài viết</h1>
+            <p class="lead fw-normal text-warning mb-0">Chọn một bài viết xem thử! 📰📰📰</p>
         </div>
     </div>
 </header>
@@ -22,18 +22,19 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             @foreach (var item in Model)
             {
-                temp = item.manhucau;
+                temp = item.machude;
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="~/Content/images/@item.hinh" alt="..." />
+                        <img class="card-img-top" src="~/Content/images/@item.hinhnen" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">@item.tenlaptop</h5>
+                                <h5 class="fw-bolder">@item.tieude</h5>
+
                                 <!-- Product price-->
-                                @String.Format("{0:0,0}", item.giaban) đ
+                                @item.ngaycapnhat.GetValueOrDefault().ToString("dd/MM/yyyy")
                             </div>
                             <div class="text-center">
                                 <!--Product star-->
@@ -48,7 +49,7 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-success mt-auto" href="@Url.Action( "Details", "Home", new { id = item.malaptop})"><i class="fa fa-eye"></i> Xem chi tiết</a></div>
+                            <div class="text-center"><a class="btn btn-outline-success mt-auto" href="@Url.Action( "PostDetails", "Home", new { id = item.matin})"><i class="fa fa-eye"></i> Xem bài viết</a></div>
                         </div>
                     </div>
                 </div>
@@ -56,13 +57,14 @@
         </div>
     </div>
 </section>
+
 <div style="text-align:center; margin-bottom: 32px;">
     <div class="lead" style="margin-bottom: 20px">
         Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /
         @Model.PageCount
     </div>
     <div class="pagination" style="margin-left: 400px; display: inline-block; margin-left: auto; margin-right: auto">
-        @Html.PagedListPager(Model, page => Url.Action("ListLaptopTheoNhuCauById", "Home", new { page = page, id = temp }))
+        @Html.PagedListPager(Model, page => Url.Action("ListBaiVietTheoChuDeId", "Home", new { page = page, id = temp }))
     </div>
 </div>
 <style>

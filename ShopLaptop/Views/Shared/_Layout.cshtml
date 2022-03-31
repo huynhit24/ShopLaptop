@@ -159,7 +159,7 @@
                                             <div class="dropdown-menu" aria-labelledby="books">
                                                 @foreach (var item in home.GetListChuDe())
                                                 {
-                                                    <a class="dropdown-item" href="category.html">@item.tenchude</a>
+                                                    <a class="dropdown-item" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})">@item.tenchude</a>
                                                 }
                                             </div>
                                         </li>

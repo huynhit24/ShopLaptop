@@ -2977,7 +2977,7 @@ namespace ShopLaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hinhnen", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hinhnen", DbType="VarChar(70)")]
 		public string hinhnen
 		{
 			get
@@ -3017,7 +3017,7 @@ namespace ShopLaptop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slug", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slug", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
 		public string slug
 		{
 			get
