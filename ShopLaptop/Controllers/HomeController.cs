@@ -64,16 +64,17 @@ namespace ShopLaptop.Controllers
             var ten = collection["ten"];
             var noidung = collection["noidung"];
             var vote = collection["vote"];
+            var malaptop = collection["malaptop"];
             /*var trangthai = collection["trangthai"];*/
-
             dg.ten = ten;
             dg.noidung = noidung;
             dg.vote = Convert.ToInt32(vote);
             dg.ngaydanhgia = DateTime.Now;
+            dg.malaptop = Convert.ToInt32(malaptop);
 
             data.DanhGias.InsertOnSubmit(dg);
             data.SubmitChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

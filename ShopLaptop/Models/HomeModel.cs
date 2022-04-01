@@ -38,6 +38,13 @@ namespace ShopLaptop.Models
             List<Laptop> list = data.Laptops.Where(n => n.trangthai == true && n.manhucau == id).ToList();
             return list;
         }
+
+        public List<DanhGia> GetListNhanXetTheoLaptop(int? id)
+        {
+            List<DanhGia> list = data.DanhGias.Where(n => n.malaptop == id).ToList();
+            return list;
+        }
+
         public List<Hang> GetListHang()
         {
             return data.Hangs.ToList();
