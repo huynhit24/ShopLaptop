@@ -53,6 +53,30 @@ namespace ShopLaptop.Controllers
         }
 
         [HttpGet]
+        public ActionResult NhanXet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NhanXet(FormCollection collection, DanhGia dg)
+        {
+            var ten = collection["ten"];
+            var noidung = collection["noidung"];
+            var vote = collection["vote"];
+            /*var trangthai = collection["trangthai"];*/
+
+            dg.ten = ten;
+            dg.noidung = noidung;
+            dg.vote = Convert.ToInt32(vote);
+            dg.ngaydanhgia = DateTime.Now;
+
+            data.DanhGias.InsertOnSubmit(dg);
+            data.SubmitChanges();
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult QuangCao()
         {
             return View();
