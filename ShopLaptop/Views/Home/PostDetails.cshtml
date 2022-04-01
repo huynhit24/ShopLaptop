@@ -1,5 +1,6 @@
 ﻿@model ShopLaptop.Models.TinTuc
 @using ShopLaptop.Models
+
 @{
     ViewBag.Title = "PostDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,8 +9,15 @@
     Random random = new Random(DateTime.Now.Millisecond);
     QuangCao randomItem = home.GetListQuangCao().ToList().ElementAt(random.Next(0, home.GetListQuangCao().Count));
 }
-
-<div class="container">
+<header class="py-5" style="background: linear-gradient(30deg, rgba(67,212,255,1) 0%, rgba(200,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+    <div class="container px-1 px-lg-1 my-1">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Blog</h1>
+            <p class="lead fw-normal mb-0" style="color: #4cff00;">Chia thông tin thủ thuật hay! 😍😍😍</p>
+        </div>
+    </div>
+</header>
+<div class="container" style="margin-top: 16px">
 
     <div class="row">
         <div class="col-lg-8">
@@ -22,61 +30,17 @@
             <hr>
             <img src="~/Content/images/@Model.hinhnen" class="img-responsive">
             <hr>
-            <p class="lead">Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-            <p>You know, being a test pilot isn't always the healthiest business in the world.</p>
-            <p>Cookie jelly beans soufflé icing. Gummi bears tootsie roll powder chupa chups cheesecake chocolate jelly-o lollipop lollipop. Halvah applicake chupa chups. Marshmallow chocolate jujubes icing lollipop gummi bears chupa chups pudding bonbon. Jelly beans jelly soufflé jujubes. Sesame snaps lollipop icing donut lemon drops soufflé.</p>
-            <p>Donut caramels gingerbread. Sweet roll macaroon pastry cotton candy oat cake sesame snaps biscuit lemon drops dessert. Candy canes carrot cake danish carrot cake soufflé jelly chocolate cake muffin. Topping brownie donut. Oat cake marzipan dragée cheesecake. Donut chocolate cake jujubes tart dragée toffee.</p>
-            <p>Tilefish electric knifefish salmon shark southern Dolly Varden. Pacific argentine tope golden shiner ilisha barreleye loosejaw catla, dogteeth tetra catfish tenpounder nase scup Ragfish brotula." Codlet brook lamprey pleco, Japanese eel convict cichlid titan triggerfish, plownose chimaera topminnow Black scalyfin. Walleye pollock, blue shark Sacramento blackfish prickleback airbreathing catfish yellowfin cutthroat trout, goby southern sandfish. North Pacific daggertooth dorab cepalin weever flying gurnard.</p>
-            <p>
-                <strong>Placeholder text by:</strong>
-            </p>
-            <ul>
-                <li>
-                    <a href="http://spaceipsum.com/">Space Ipsum</a>
-                </li>
-                <li>
-                    <a href="http://cupcakeipsum.com/">Cupcake Ipsum</a>
-                </li>
-                <li>
-                    <a href="http://tunaipsum.com/">Tuna Ipsum</a>
-                </li>
-            </ul>
+            <p>@Model.noidung</p>
 
             <hr>
-
-            <!-- the comment box -->
-            <div class="well">
-                <h4>Nhận xét:</h4>
-                <form role="form">
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-comment"></i> Gửi</button>
-                </form>
-            </div>
-
-            <hr>
-
-            <!-- the comments -->
-            <h3>
-                Start Bootstrap
-                <small>9:41 PM on August 24, 2013</small>
-            </h3>
-            <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
-
-            <h3>
-                Start Bootstrap
-                <small>9:47 PM on August 24, 2013</small>
-            </h3>
-            <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p>
 
         </div>
 
         <div class="col-lg-4">
             <div class="panel-body">
-                <h4>Blog Search</h4>
+                <h4>Tìm kiếm bài viết</h4>
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm bài viết...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <span class="glyphicon glyphicon-search"></span>
@@ -86,49 +50,19 @@
                 <!-- /input-group -->
             </div>
             <!-- /well -->
-            <div class="well">
-                <h4>Popular Blog Categories</h4>
+            <div class="well" style="margin-top: 16px;">
+                <h4>Chủ đề</h4>
                 <div class="row">
                     <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#dinosaurs">Dinosaurs</a>
-                            </li>
-                            <li>
-                                <a href="#spaceships">Spaceships</a>
-                            </li>
-                            <li>
-                                <a href="#fried-foods">Fried Foods</a>
-                            </li>
-                            <li>
-                                <a href="#wild-animals">Wild Animals</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#alien-abductions">Alien Abductions</a>
-                            </li>
-                            <li>
-                                <a href="#business-casual">Business Casual</a>
-                            </li>
-                            <li>
-                                <a href="#robots">Robots</a>
-                            </li>
-                            <li>
-                                <a href="#fireworks">Fireworks</a>
-                            </li>
-                        </ul>
+
+                        @foreach (var item in home.GetListChuDe())
+                        {
+                            <a style="background-color: #0eebd7; margin: 4px;" class="btn text-white" href="@Url.Action("ListBaiVietTheoChuDeId","Home", new { id = item.machude})"><i class="fa fa-podcast"></i> @item.tenchude</a>
+                        }
+
                     </div>
                 </div>
             </div>
-            <!-- /well -->
-            <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Bootstrap's default wells work great for side widgets! What is a widget anyways...?</p>
-            </div>
-            <!-- /well -->
         </div>
     </div>
     <footer>

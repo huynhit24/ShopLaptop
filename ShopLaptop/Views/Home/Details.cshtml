@@ -1,10 +1,13 @@
 ﻿@model ShopLaptop.Models.Laptop
 
 @using ShopLaptop.Models
+@using ShopLaptop.Common
 @{
     ViewBag.Title = "Details";
 
     HomeModel home = new HomeModel();
+
+    CommonFields.id = Model.malaptop;
 }
 <!-- Product section-->
 <section class="py-5">
@@ -64,7 +67,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />
+                    @*<input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />*@
                     <a href="@Url.Action("ThemGioHang", "GioHang", new { @id = Model.malaptop, @strURL = Request.Url.ToString() })" class="btn btn-danger flex-shrink-0">
                         <i class="fa fa-cart-plus me-1"></i>
                         Thêm vào giỏ
@@ -88,7 +91,7 @@
                     <h2><u>Mô tả sản phẩm</u></h2>
                 </div>
                 <div class="col-12" id="details">
-                    <p>@Model.mota</p> 
+                    <p>@Model.mota</p>
                 </div>
             </div>
             <div class="col-md-5">
@@ -99,64 +102,64 @@
                         <div class="col-12 mt-md-0 mt-3 text-uppercase">
                             <h2><u>Xếp hạng & Đánh giá</u></h2>
                         </div>
-                        <div class="col-12">
+                        @*<div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-4 text-center">
                             <div class="row">
-                                <div class="col-sm-4 text-center">
-                                    <div class="row">
-                                        <div class="col-12 average-rating">
-                                            4.1
-                                        </div>
-                                        <div class="col-12">
-                                            of 100 reviews
-                                        </div>
-                                    </div>
+                                <div class="col-12 average-rating">
+                                    4.1
                                 </div>
-                                <div class="col">
-                                    <ul class="rating-list mt-3">
-                                        <li>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                                            </div>
-                                            <div class="rating-progress-label">
-                                                5<i class="fas fa-star ms-1"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
-                                            </div>
-                                            <div class="rating-progress-label">
-                                                4<i class="fas fa-star ms-1"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
-                                            </div>
-                                            <div class="rating-progress-label">
-                                                3<i class="fas fa-star ms-1"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 7%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">7%</div>
-                                            </div>
-                                            <div class="rating-progress-label">
-                                                2<i class="fas fa-star ms-1"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: 3%;" aria-valuenow="3" aria-valuemin="3" aria-valuemax="100">3%</div>
-                                            </div>
-                                            <div class="rating-progress-label">
-                                                1<i class="fas fa-star ms-1"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div class="col-12">
+                                    of 100 reviews
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <ul class="rating-list mt-3">
+                                <li>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                    </div>
+                                    <div class="rating-progress-label">
+                                        5<i class="fas fa-star ms-1"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                                    </div>
+                                    <div class="rating-progress-label">
+                                        4<i class="fas fa-star ms-1"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+                                    </div>
+                                    <div class="rating-progress-label">
+                                        3<i class="fas fa-star ms-1"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 7%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">7%</div>
+                                    </div>
+                                    <div class="rating-progress-label">
+                                        2<i class="fas fa-star ms-1"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 3%;" aria-valuenow="3" aria-valuemin="3" aria-valuemax="100">3%</div>
+                                    </div>
+                                    <div class="rating-progress-label">
+                                        1<i class="fas fa-star ms-1"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>*@
                     </div>
                     <!-- Rating -->
 
@@ -172,23 +175,32 @@
                             <h4>Thêm đánh giá</h4>
                         </div>
                         <div class="col-12">
-                            <form>
+                            @*@using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
                                 <div class="mb-3">
-                                    <textarea class="form-control" placeholder="Thêm đánh giá..."></textarea>
+                                    <textarea name="ten" class="form-control" placeholder="Họ tên..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea name="noidung" class="form-control" placeholder="Thêm đánh giá..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="text-hide" name="malaptop">@Model.malaptop</p>
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex ratings justify-content-end flex-row-reverse">
-                                        <input type="radio" value="5" name="rating" id="rating-5"><label for="rating-5"></label>
-                                        <input type="radio" value="4" name="rating" id="rating-4"><label for="rating-4"></label>
-                                        <input type="radio" value="3" name="rating" id="rating-3"><label for="rating-3"></label>
-                                        <input type="radio" value="2" name="rating" id="rating-2"><label for="rating-2"></label>
-                                        <input type="radio" value="1" name="rating" id="rating-1" checked><label for="rating-1"></label>
+                                        <input type="radio" value="5" name="vote" id="rating-5"><label for="rating-5"></label>
+                                        <input type="radio" value="4" name="vote" id="rating-4"><label for="rating-4"></label>
+                                        <input type="radio" value="3" name="vote" id="rating-3"><label for="rating-3"></label>
+                                        <input type="radio" value="2" name="vote" id="rating-2"><label for="rating-2"></label>
+                                        <input type="radio" value="1" name="vote" id="rating-1" checked><label for="rating-1"></label>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-outline-dark">Add Review</button>
+                                    <button type="submit" class="btn btn-outline-dark">Gửi</button>
                                 </div>
-                            </form>
+                            }*@
+                            @Html.Action("NhanXet","Home")
                         </div>
                     </div>
                     <!-- Add Review -->
@@ -199,68 +211,7 @@
                         </div>
                     </div>
 
-                    <!-- Review -->
-                    <div class="row">
-                        <div class="col-12">
-
-                            <!-- Comments -->
-                            <div class="col-12 text-justify py-2 px-3 mb-3 bg-gray">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <strong class="me-2">Steve Rogers</strong>
-                                        <small>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </small>
-                                    </div>
-                                    <div class="col-12">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut ullamcorper quam, non congue odio.
-                                        <br>
-                                        Fusce ligula augue, faucibus sed neque non, auctor rhoncus enim. Sed nec molestie turpis. Nullam accumsan porttitor rutrum. Curabitur eleifend venenatis volutpat.
-                                        <br>
-                                        Aenean faucibus posuere vehicula.
-                                    </div>
-                                    <div class="col-12">
-                                        <small>
-                                            <i class="fas fa-clock me-2"></i>5 hours ago
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comments -->
-                            <!-- Comments -->
-                            <div class="col-12 text-justify py-2 px-3 mb-3 bg-gray">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <strong class="me-2">Bucky Barns</strong>
-                                        <small>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </small>
-                                    </div>
-                                    <div class="col-12">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut ullamcorper quam, non congue odio.
-                                        <br>
-                                        Aenean faucibus posuere vehicula.
-                                    </div>
-                                    <div class="col-12">
-                                        <small>
-                                            <i class="fas fa-clock me-2"></i>5 hours ago
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comments -->
-                            <a data-appid="2323097334574596743" data-size="10" data-href="https://localhost:44345/Home/"></a>
-                        </div>
-                    </div>
-                    <!-- Review -->
+                    @Html.Action("Comment","Home")
 
                 </div>
             </div>

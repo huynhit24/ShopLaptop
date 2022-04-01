@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopLaptop.Common;
 
 namespace ShopLaptop.Controllers
 {
@@ -50,6 +51,33 @@ namespace ShopLaptop.Controllers
             data.LienHes.InsertOnSubmit(lh);
             data.SubmitChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult NhanXet()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult NhanXet(FormCollection collection, DanhGia dg)
+        {
+            var ten = collection["ten"];
+            var noidung = collection["noidung"];
+            var vote = collection["vote"];
+            var malaptop = CommonFields.id;
+            /*var trangthai = collection["trangthai"];*/
+            dg.ten = ten;
+            dg.noidung = noidung;
+            /*dg.vote = Convert.ToInt32(vote);*/
+            dg.vote = Convert.ToInt32(vote);
+            dg.ngaydanhgia = DateTime.Now;
+            dg.malaptop = malaptop;
+
+            data.DanhGias.InsertOnSubmit(dg);
+            data.SubmitChanges();
+            /*return RedirectToAction("Details");*/
+            return PartialView();
         }
 
         [HttpGet]
@@ -120,6 +148,12 @@ namespace ShopLaptop.Controllers
             int pageSize = 3;
             int pageNum = page ?? 1;
             return View(all_laptop.ToPagedList(pageNum, pageSize));
+        }
+
+        public ActionResult Comment()
+        {
+            var comment = (from cd in data.DanhGias select cd).Where(n => n.malaptop == CommonFields.id); ;
+            return PartialView(comment);
         }
     }
 }
