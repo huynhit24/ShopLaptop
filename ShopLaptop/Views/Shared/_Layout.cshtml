@@ -81,16 +81,45 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-auto">
-                                <ul class="top-nav">
-                                    <li>
-                                        <a href="@Url.Action("DangKy","NguoiDung")"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("DangNhap","NguoiDung")"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @{
+                                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                                if (Session["TaiKhoan"] == null)
+                                {
+                                    <div class="col-auto">
+                                        <ul class="top-nav">
+                                            <li>
+                                                <a href="@Url.Action("DangKy","NguoiDung")"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DangNhap","NguoiDung")"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-auto">
+                                        <ul class="top-nav">
+                                            <li>
+                                                <a href="@Url.Action("GioHang","GioHang")"><i class="fas fa-user-edit me-2"></i> @kh.hoten</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DangXuat","NguoiDung")"><i class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                            @*<div class="col-auto">
+                                    <ul class="top-nav">
+                                        <li>
+                                            <a href="@Url.Action("DangKy","NguoiDung")"><i class="fas fa-user-edit me-2"></i>Đăng ký</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("DangNhap","NguoiDung")"><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</a>
+                                        </li>
+                                    </ul>
+                                </div>*@
                         </div>
                     </div>
                     <!-- Top Nav -->
@@ -119,7 +148,7 @@
                                 <a href="cart.html" class="header-item">
                                     @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")
                                     @*<i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">2</span>
-                                    <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">0 đ</span>*@
+                                        <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">0 đ</span>*@
                                 </a>
                             </div>
                         </div>

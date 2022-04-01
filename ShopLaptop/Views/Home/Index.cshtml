@@ -1,4 +1,5 @@
 ﻿@model ShopLaptop.Models.HomeModel
+@using ShopLaptop.Models
 
 @{
     ViewBag.Title = "Home Page";
@@ -186,7 +187,7 @@
                                 <div class="row h-100">
                                     <div class="col-12 p-0 mb-3">
                                         <a href="@Url.Action( "Details", "Home", new { id = item.malaptop})">
-                                            <img src="~/Content/images/@item.hinh" class="img-fluid" style="width:250px;height:250px;"/>
+                                            <img src="~/Content/images/@item.hinh" class="img-fluid" style="width:250px;height:250px;" />
                                         </a>
                                     </div>
                                     <div class="col-12 mb-3">
