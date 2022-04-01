@@ -131,6 +131,16 @@ namespace ShopLaptop.Controllers
             int pageNum = page ?? 1;
             return View(all_blog.ToPagedList(pageNum, pageSize));
         }
+        
+        public ActionResult ListLaptopTheoSearch(int? page, string SearchString)
+        {
+            CommonFields.seek = SearchString;
+            if (page == null) page = 1;
+            var all_laptop = (from s in data.Laptops select s).OrderBy(m => m.malaptop).Where(n => n.trangthai == true && n.tenlaptop.Contains(SearchString));
+            int pageSize = 3;
+            int pageNum = page ?? 1;
+            return View(all_laptop.ToPagedList(pageNum, pageSize));
+        }
 
         public ActionResult ListLaptopTheoHangId(int? page, int id)
         {

@@ -22,7 +22,7 @@
                 <h1 class="display-5 fw-bolder">@Model.tenlaptop</h1>
                 <div class="fs-5 mb-5">
                     @*<span class="text-decoration-line-through">@Model.giaban</span>*@
-                    <span>@Model.giaban đ </span>
+                    <span>@String.Format("{0:0,0}", Model.giaban) đ </span>
                 </div>
                 <a class="zalo-follow-only-button" data-oaid="579745863508352884" style="margin-left:14px"></a>
                 <table class="table">
@@ -244,7 +244,7 @@
                                     <div class="bi-star-fill"></div>
                                 </div>
                                 <!-- Product price-->
-                                @item.giaban đ
+                                @String.Format("{0:0,0}", item.giaban) đ
                             </div>
                         </div>
                         <!-- Product actions-->

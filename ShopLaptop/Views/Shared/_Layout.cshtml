@@ -1,5 +1,5 @@
 ﻿@using ShopLaptop.Models
-
+@using ShopLaptop.Common
 @{
     HomeModel home = new HomeModel();
 }
@@ -132,15 +132,18 @@
                                 </div>
                             </div>
                             <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-                                <form action="#">
+                                @using (Html.BeginForm("ListLaptopTheoSearch", "Home"))
+                                {
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <input type="search" class="form-control border-dark" placeholder="Tìm kiếm sản phẩm..." required>
-                                            <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                                        <div class="input-group text-center">
+
+                                            <input name="SearchString" type="search" class="form-control border-dark" placeholder="Tìm kiếm sản phẩm..." required>
+                                            <button type="submit" class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                                            
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                }
+                                </div>
                             <div class="col-lg-auto text-center text-lg-left header-item-holder">
                                 <a href="#" class="header-item">
                                     @*<i class="fas fa-heart me-2"></i><span id="header-favorite">0</span>*@

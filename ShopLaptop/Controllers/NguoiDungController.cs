@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShopLaptop.Models;
+using ShopLaptop.Common;
 
 namespace ShopLaptop.Controllers
 {
@@ -41,7 +42,7 @@ namespace ShopLaptop.Controllers
                 {
                     kh.hoten = hoten;
                     kh.tendangnhap = tendangnhap;
-                    kh.matkhau = matkhau;
+                    kh.matkhau = CommonFields.getStringSHA256Hash(matkhau).Substring(0,32);
                     kh.email = email;
                     kh.diachi = diachi;
                     kh.dienthoai = dienthoai;
@@ -64,7 +65,7 @@ namespace ShopLaptop.Controllers
         {
             var tendangnhap = collection["tendangnhap"];
             var matkhau = collection["matkhau"];
-            KhachHang kh = data.KhachHangs.SingleOrDefault(n => n.tendangnhap == tendangnhap && n.matkhau == matkhau);
+            KhachHang kh = data.KhachHangs.SingleOrDefault(n => n.tendangnhap == tendangnhap && n.matkhau == CommonFields.getStringSHA256Hash(matkhau).Substring(0,32));
             if (kh != null)
             {
                 ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
