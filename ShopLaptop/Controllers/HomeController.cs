@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopLaptop.Common;
 
 namespace ShopLaptop.Controllers
 {
@@ -55,7 +56,7 @@ namespace ShopLaptop.Controllers
         [HttpGet]
         public ActionResult NhanXet()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
@@ -64,17 +65,19 @@ namespace ShopLaptop.Controllers
             var ten = collection["ten"];
             var noidung = collection["noidung"];
             var vote = collection["vote"];
-            var malaptop = collection["malaptop"];
+            var malaptop = CommonFields.id;
             /*var trangthai = collection["trangthai"];*/
             dg.ten = ten;
             dg.noidung = noidung;
+            /*dg.vote = Convert.ToInt32(vote);*/
             dg.vote = Convert.ToInt32(vote);
             dg.ngaydanhgia = DateTime.Now;
-            dg.malaptop = Convert.ToInt32(malaptop);
+            dg.malaptop = malaptop;
 
             data.DanhGias.InsertOnSubmit(dg);
             data.SubmitChanges();
-            return RedirectToAction("Index");
+            /*return RedirectToAction("Details");*/
+            return PartialView();
         }
 
         [HttpGet]
@@ -145,6 +148,12 @@ namespace ShopLaptop.Controllers
             int pageSize = 3;
             int pageNum = page ?? 1;
             return View(all_laptop.ToPagedList(pageNum, pageSize));
+        }
+
+        public ActionResult Comment()
+        {
+            var comment = (from cd in data.DanhGias select cd).Where(n => n.malaptop == CommonFields.id); ;
+            return PartialView(comment);
         }
     }
 }
