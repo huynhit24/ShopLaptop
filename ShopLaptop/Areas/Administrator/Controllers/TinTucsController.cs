@@ -107,6 +107,7 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]// mới thêm vô
         public ActionResult Edit([Bind(Include = "matin,tieude,hinhnen,tomtat,slug,noidung,luotxem,ngaycapnhat,xuatban,machude")] TinTuc tinTuc)
         {
             if (Session["taikhoanadmin"] == null)

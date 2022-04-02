@@ -8,8 +8,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
-
-
+	// Define changes to default configuration here. For example:
+	config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+	config.htmlEncodeOutput = false;
+	config.entities = false;
+	config.entities_latin = true;
+	config.ForceSimpleAmpersand = true;
 	config.syntaxhighlight_lang = 'csharp';
 	config.syntaxhighlight_hideControls = true;
 	config.languages = 'vi';
