@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/NhuCaus
         public ActionResult Index()
         {
-            return View(db.NhuCaus.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.NhuCaus.ToList());
+            }
         }
 
         // GET: Administrator/NhuCaus/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                NhuCau nhuCau = db.NhuCaus.Find(id);
+                if (nhuCau == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(nhuCau);
             }
-            NhuCau nhuCau = db.NhuCaus.Find(id);
-            if (nhuCau == null)
-            {
-                return HttpNotFound();
-            }
-            return View(nhuCau);
         }
 
         // GET: Administrator/NhuCaus/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/NhuCaus/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "manhucau,tennhucau")] NhuCau nhuCau)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.NhuCaus.Add(nhuCau);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.NhuCaus.Add(nhuCau);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(nhuCau);
+                return View(nhuCau);
+            }
         }
 
         // GET: Administrator/NhuCaus/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                NhuCau nhuCau = db.NhuCaus.Find(id);
+                if (nhuCau == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(nhuCau);
             }
-            NhuCau nhuCau = db.NhuCaus.Find(id);
-            if (nhuCau == null)
-            {
-                return HttpNotFound();
-            }
-            return View(nhuCau);
         }
 
         // POST: Administrator/NhuCaus/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "manhucau,tennhucau")] NhuCau nhuCau)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(nhuCau).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(nhuCau).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(nhuCau);
             }
-            return View(nhuCau);
         }
 
         // GET: Administrator/NhuCaus/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                NhuCau nhuCau = db.NhuCaus.Find(id);
+                if (nhuCau == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(nhuCau);
             }
-            NhuCau nhuCau = db.NhuCaus.Find(id);
-            if (nhuCau == null)
-            {
-                return HttpNotFound();
-            }
-            return View(nhuCau);
         }
 
         // POST: Administrator/NhuCaus/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NhuCau nhuCau = db.NhuCaus.Find(id);
-            db.NhuCaus.Remove(nhuCau);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                NhuCau nhuCau = db.NhuCaus.Find(id);
+                db.NhuCaus.Remove(nhuCau);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

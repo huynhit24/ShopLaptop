@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/ChuDes
         public ActionResult Index()
         {
-            return View(db.ChuDes.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.ChuDes.ToList());
+            }
         }
 
         // GET: Administrator/ChuDes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChuDe chuDe = db.ChuDes.Find(id);
+                if (chuDe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(chuDe);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
-            if (chuDe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chuDe);
         }
 
         // GET: Administrator/ChuDes/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/ChuDes/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "machude,tenchude,slug,hinh")] ChuDe chuDe)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.ChuDes.Add(chuDe);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.ChuDes.Add(chuDe);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(chuDe);
+                return View(chuDe);
+            }
         }
 
         // GET: Administrator/ChuDes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChuDe chuDe = db.ChuDes.Find(id);
+                if (chuDe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(chuDe);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
-            if (chuDe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chuDe);
         }
 
         // POST: Administrator/ChuDes/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "machude,tenchude,slug,hinh")] ChuDe chuDe)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(chuDe).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(chuDe).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(chuDe);
             }
-            return View(chuDe);
         }
 
         // GET: Administrator/ChuDes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChuDe chuDe = db.ChuDes.Find(id);
+                if (chuDe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(chuDe);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
-            if (chuDe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chuDe);
         }
 
         // POST: Administrator/ChuDes/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChuDe chuDe = db.ChuDes.Find(id);
-            db.ChuDes.Remove(chuDe);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                ChuDe chuDe = db.ChuDes.Find(id);
+                db.ChuDes.Remove(chuDe);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -120,10 +120,14 @@ chart.render();
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>*@
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="@Url.Action("Index","MainPage")" class="nav-link">Dashboard</a>
+                    <a href="@Url.Action("Index","MainPage")" class="nav-link">
+                        <img src="~/Areas/Administrator/Data/images/dashboard.png" width="30" height="30"/> Dashboard
+                    </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="@Url.Action("Logout","MainPage")" class="nav-link">
+                        <img src="~/Content/images/log-out.png" width="30" height="30" /> Đăng xuất
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -164,10 +168,10 @@ chart.render();
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <!-- My Project ------------------------------------------------------ Start-->
                         <li class="nav-item">
-                            <a href="@Url.Action("Index","Laptops")" class="nav-link">
+                            <a href="@Url.Action("Index","MainPage")" class="nav-link">
                                 @*<i class="fas fa-circle nav-icon"></i>*@
                                 <img src="~/Areas/Administrator/Data/images/dashboard.png" alt="Alternate Text" width="40" height="40" />
                                 <p>Dashboard</p>

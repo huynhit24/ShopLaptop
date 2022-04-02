@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/KhachHangs
         public ActionResult Index()
         {
-            return View(db.KhachHangs.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.KhachHangs.ToList());
+            }
         }
 
         // GET: Administrator/KhachHangs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                KhachHang khachHang = db.KhachHangs.Find(id);
+                if (khachHang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(khachHang);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            if (khachHang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(khachHang);
         }
 
         // GET: Administrator/KhachHangs/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/KhachHangs/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "makh,hoten,tendangnhap,matkhau,email,diachi,dienthoai,ngaysinh")] KhachHang khachHang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.KhachHangs.Add(khachHang);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.KhachHangs.Add(khachHang);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(khachHang);
+                return View(khachHang);
+            }
         }
 
         // GET: Administrator/KhachHangs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                KhachHang khachHang = db.KhachHangs.Find(id);
+                if (khachHang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(khachHang);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            if (khachHang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(khachHang);
         }
 
         // POST: Administrator/KhachHangs/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "makh,hoten,tendangnhap,matkhau,email,diachi,dienthoai,ngaysinh")] KhachHang khachHang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(khachHang).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(khachHang).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(khachHang);
             }
-            return View(khachHang);
         }
 
         // GET: Administrator/KhachHangs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                KhachHang khachHang = db.KhachHangs.Find(id);
+                if (khachHang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(khachHang);
             }
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            if (khachHang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(khachHang);
         }
 
         // POST: Administrator/KhachHangs/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            KhachHang khachHang = db.KhachHangs.Find(id);
-            db.KhachHangs.Remove(khachHang);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                KhachHang khachHang = db.KhachHangs.Find(id);
+                db.KhachHangs.Remove(khachHang);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

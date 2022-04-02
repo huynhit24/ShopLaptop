@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/Admins
         public ActionResult Index()
         {
-            return View(db.Admins.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.Admins.ToList());
+            }
         }
 
         // GET: Administrator/Admins/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.Admins.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
         }
 
         // GET: Administrator/Admins/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/Admins/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserAdmin,PassAdmin,hoten")] Admin admin)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Admins.Add(admin);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Admins.Add(admin);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(admin);
+                return View(admin);
+            }
         }
 
         // GET: Administrator/Admins/Edit/5
         public ActionResult Edit(string id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.Admins.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
         }
 
         // POST: Administrator/Admins/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UserAdmin,PassAdmin,hoten")] Admin admin)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(admin).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(admin).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(admin);
             }
-            return View(admin);
         }
 
         // GET: Administrator/Admins/Delete/5
         public ActionResult Delete(string id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.Admins.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(admin);
         }
 
         // POST: Administrator/Admins/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                Admin admin = db.Admins.Find(id);
+                db.Admins.Remove(admin);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

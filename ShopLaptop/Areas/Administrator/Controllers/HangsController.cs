@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/Hangs
         public ActionResult Index()
         {
-            return View(db.Hangs.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.Hangs.ToList());
+            }
         }
 
         // GET: Administrator/Hangs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Hang hang = db.Hangs.Find(id);
+                if (hang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(hang);
             }
-            Hang hang = db.Hangs.Find(id);
-            if (hang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hang);
         }
 
         // GET: Administrator/Hangs/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/Hangs/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "mahang,tenhang,hinh")] Hang hang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Hangs.Add(hang);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Hangs.Add(hang);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(hang);
+                return View(hang);
+            }
         }
 
         // GET: Administrator/Hangs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Hang hang = db.Hangs.Find(id);
+                if (hang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(hang);
             }
-            Hang hang = db.Hangs.Find(id);
-            if (hang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hang);
         }
 
         // POST: Administrator/Hangs/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "mahang,tenhang,hinh")] Hang hang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(hang).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(hang).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(hang);
             }
-            return View(hang);
         }
 
         // GET: Administrator/Hangs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Hang hang = db.Hangs.Find(id);
+                if (hang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(hang);
             }
-            Hang hang = db.Hangs.Find(id);
-            if (hang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hang);
         }
 
         // POST: Administrator/Hangs/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Hang hang = db.Hangs.Find(id);
-            db.Hangs.Remove(hang);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                Hang hang = db.Hangs.Find(id);
+                db.Hangs.Remove(hang);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

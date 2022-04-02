@@ -17,28 +17,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/LienHes
         public ActionResult Index()
         {
-            return View(db.LienHes.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View(db.LienHes.ToList());
+            }
         }
 
         // GET: Administrator/LienHes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LienHe lienHe = db.LienHes.Find(id);
+                if (lienHe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(lienHe);
             }
-            LienHe lienHe = db.LienHes.Find(id);
-            if (lienHe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lienHe);
         }
 
         // GET: Administrator/LienHes/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Administrator/LienHes/Create
@@ -48,29 +63,39 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "malienhe,hoten,email,dienthoai,website,noidung,trangthai")] LienHe lienHe)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.LienHes.Add(lienHe);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.LienHes.Add(lienHe);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(lienHe);
+                return View(lienHe);
+            }
         }
 
         // GET: Administrator/LienHes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LienHe lienHe = db.LienHes.Find(id);
+                if (lienHe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(lienHe);
             }
-            LienHe lienHe = db.LienHes.Find(id);
-            if (lienHe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lienHe);
         }
 
         // POST: Administrator/LienHes/Edit/5
@@ -80,28 +105,38 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "malienhe,hoten,email,dienthoai,website,noidung,trangthai")] LienHe lienHe)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(lienHe).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(lienHe).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(lienHe);
             }
-            return View(lienHe);
         }
 
         // GET: Administrator/LienHes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                LienHe lienHe = db.LienHes.Find(id);
+                if (lienHe == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(lienHe);
             }
-            LienHe lienHe = db.LienHes.Find(id);
-            if (lienHe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lienHe);
         }
 
         // POST: Administrator/LienHes/Delete/5
@@ -109,10 +144,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LienHe lienHe = db.LienHes.Find(id);
-            db.LienHes.Remove(lienHe);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                LienHe lienHe = db.LienHes.Find(id);
+                db.LienHes.Remove(lienHe);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

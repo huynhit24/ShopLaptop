@@ -131,5 +131,11 @@ namespace ShopLaptop.Areas.Administrator.Controllers
             }
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session["taikhoanadmin"] = null;
+            return RedirectToAction("Login", "MainPage");
+        }
     }
 }

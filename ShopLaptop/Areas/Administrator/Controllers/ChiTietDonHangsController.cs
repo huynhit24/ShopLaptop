@@ -17,31 +17,46 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/ChiTietDonHangs
         public ActionResult Index()
         {
-            var chiTietDonHangs = db.ChiTietDonHangs.Include(c => c.DonHang).Include(c => c.Laptop);
-            return View(chiTietDonHangs.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                var chiTietDonHangs = db.ChiTietDonHangs.Include(c => c.DonHang).Include(c => c.Laptop);
+                return View(chiTietDonHangs.ToList());
+            }
         }
 
         // GET: Administrator/ChiTietDonHangs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+                if (chiTietDonHang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(chiTietDonHang);
             }
-            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
-            if (chiTietDonHang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chiTietDonHang);
         }
 
         // GET: Administrator/ChiTietDonHangs/Create
         public ActionResult Create()
         {
-            ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon");
-            ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop");
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon");
+                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop");
+                return View();
+            }
         }
 
         // POST: Administrator/ChiTietDonHangs/Create
@@ -51,33 +66,43 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "madon,malaptop,soluong,dongia")] ChiTietDonHang chiTietDonHang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.ChiTietDonHangs.Add(chiTietDonHang);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.ChiTietDonHangs.Add(chiTietDonHang);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
-            ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
-            return View(chiTietDonHang);
+                ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
+                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                return View(chiTietDonHang);
+            }
         }
 
         // GET: Administrator/ChiTietDonHangs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+                if (chiTietDonHang == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
+                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                return View(chiTietDonHang);
             }
-            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
-            if (chiTietDonHang == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
-            ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
-            return View(chiTietDonHang);
         }
 
         // POST: Administrator/ChiTietDonHangs/Edit/5
@@ -87,30 +112,40 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "madon,malaptop,soluong,dongia")] ChiTietDonHang chiTietDonHang)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(chiTietDonHang).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(chiTietDonHang).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
+                ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
+                return View(chiTietDonHang);
             }
-            ViewBag.madon = new SelectList(db.DonHangs, "madon", "madon", chiTietDonHang.madon);
-            ViewBag.malaptop = new SelectList(db.Laptops, "malaptop", "tenlaptop", chiTietDonHang.malaptop);
-            return View(chiTietDonHang);
         }
 
         // GET: Administrator/ChiTietDonHangs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+                if (chiTietDonHang == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(chiTietDonHang);
             }
-            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
-            if (chiTietDonHang == null)
-            {
-                return HttpNotFound();
-            }
-            return View(chiTietDonHang);
         }
 
         // POST: Administrator/ChiTietDonHangs/Delete/5
@@ -118,10 +153,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
-            db.ChiTietDonHangs.Remove(chiTietDonHang);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+                db.ChiTietDonHangs.Remove(chiTietDonHang);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -2162,6 +2162,7 @@
     <Content Include="Content\images\laptop %287%29.jpg" />
     <Content Include="Content\images\laptop %288%29.jpg" />
     <Content Include="Content\images\laptop %289%29.jpg" />
+    <Content Include="Content\images\log-out.png" />
     <Content Include="Content\images\logo-momo.png" />
     <Content Include="Content\images\master-card-payment.jpg" />
     <Content Include="Content\images\no-cart.png" />
