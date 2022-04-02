@@ -25,6 +25,11 @@ namespace ShopLaptop.Areas.Administrator
              defaults: new { controller = "MainPage", action = "Login", AreaName = "Administrator" }
             );
             context.MapRoute(
+             name: "adlogin",
+             url: "MainPage/Login",
+             defaults: new { controller = "MainPage", action = "Login", AreaName = "Administrator" }
+            );
+            context.MapRoute(
                 "Administrator_default",
                 "Administrator/{controller}/{action}/{id}",
                 new { action = "Index", Controller = "MainPage", id = UrlParameter.Optional }

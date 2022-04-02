@@ -46,9 +46,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Areas/Administrator/Data/dist/css/adminlte.min.css">
     <link href="~/Areas/Administrator/Data/dist/css/main.css" rel="stylesheet" />
-    <script>
+    @*<script>
 window.onload = function () {
-var chart = new CanvasJS.Chart("chartContainer", {
+    var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: false,
 	title: {
 		text: "Product Types"
@@ -79,7 +79,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
-var chart = new CanvasJS.Chart("chartContainer2", {
+    var chart = new CanvasJS.Chart("chartContainer2", {
 	animationEnabled: false,
 	title: {
 		text: "Products Sales Over a Month"
@@ -101,7 +101,7 @@ var chart = new CanvasJS.Chart("chartContainer2", {
 });
 chart.render();
         }
-    </script>
+    </script>*@
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -121,7 +121,7 @@ chart.render();
                     </li>*@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="@Url.Action("Index","MainPage")" class="nav-link">
-                        <img src="~/Areas/Administrator/Data/images/dashboard.png" width="30" height="30"/> Dashboard
+                        <img src="~/Areas/Administrator/Data/images/dashboard.png" width="30" height="30" /> Dashboard
                     </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
