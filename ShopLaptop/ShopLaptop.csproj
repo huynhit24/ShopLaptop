@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
@@ -136,64 +136,37 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Controllers\AdminsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\ChiTietDonHangsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\ChuDesController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\DanhGiasController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\DonHangsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\HangsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\KhachHangsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\LaptopsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\LienHesController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\MetaLaptopsController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\NhuCausController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\QuangCaosController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\TinTucsController.cs" />
     <Compile Include="Common\CommonFields.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
-    <Compile Include="EF\Admin.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ChiTietDonHang.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\ChuDe.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\DanhGia.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\DataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\DataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EF\DonHang.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Hang.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\KhachHang.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Laptop.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\LienHe.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\MetaLaptop.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\NhuCau.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\QuangCao.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\TinTuc.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="EF\Admin.cs" />
+    <Compile Include="EF\ChiTietDonHang.cs" />
+    <Compile Include="EF\ChuDe.cs" />
+    <Compile Include="EF\DanhGia.cs" />
+    <Compile Include="EF\DataModel.cs" />
+    <Compile Include="EF\DonHang.cs" />
+    <Compile Include="EF\Hang.cs" />
+    <Compile Include="EF\KhachHang.cs" />
+    <Compile Include="EF\Laptop.cs" />
+    <Compile Include="EF\LienHe.cs" />
+    <Compile Include="EF\MetaLaptop.cs" />
+    <Compile Include="EF\NhuCau.cs" />
+    <Compile Include="EF\QuangCao.cs" />
+    <Compile Include="EF\TinTuc.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2186,16 +2159,6 @@
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
     <Content Include="Content\webfonts\fa-solid-900.svg" />
-    <Content Include="EF\DataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="EF\DataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2224,13 +2187,6 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>MyData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </Content>
-    <EntityDeploy Include="EF\DataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="EF\DataModel.edmx.diagram">
-      <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Administrator\Views\web.config" />
     <Content Include="Areas\Administrator\Data\.github\codeql\codeql-config.yml" />
@@ -2417,6 +2373,71 @@
     <Content Include="Areas\Administrator\Data\plugins\summernote\summernote.min.js.map" />
     <Content Include="Areas\Administrator\Data\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\Administrator\Views\Shared\_LayoutAdministrator.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Admins\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChuDes\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChuDes\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChuDes\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChuDes\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChuDes\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\TinTucs\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\TinTucs\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\TinTucs\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\TinTucs\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\TinTucs\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\QuangCaos\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\QuangCaos\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\QuangCaos\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\QuangCaos\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\QuangCaos\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\NhuCaus\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\NhuCaus\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\NhuCaus\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\NhuCaus\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\NhuCaus\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\LienHes\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\LienHes\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\LienHes\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\LienHes\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\LienHes\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\KhachHangs\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\KhachHangs\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\KhachHangs\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Hangs\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Hangs\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Hangs\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Hangs\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Hangs\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\DonHangs\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\MetaLaptops\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\MetaLaptops\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\MetaLaptops\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\MetaLaptops\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\MetaLaptops\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Laptops\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Laptops\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Laptops\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Laptops\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Laptops\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\DanhGias\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\DanhGias\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\DanhGias\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\DanhGias\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\DanhGias\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChiTietDonHangs\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChiTietDonHangs\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChiTietDonHangs\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChiTietDonHangs\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\ChiTietDonHangs\Index.cshtml" />
     <None Include="Models\MyData.dbml.layout">
       <DependentUpon>MyData.dbml</DependentUpon>
     </None>
@@ -2463,7 +2484,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
