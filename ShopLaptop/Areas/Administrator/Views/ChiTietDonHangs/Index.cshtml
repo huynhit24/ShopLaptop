@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ShopLaptop.EF.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
+}
+
+<body class="hold-transition sidebar-mini">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 style="text-align:center;color:#fff">Admin</h2>
+                            <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","ChiTietDonHangs")">+ Tạo mới</a>
+                        </div>
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayName("Mã đơn hàng")
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayName("Tên Laptop")
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayName("Số lượng")
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayName("Đơn giá")
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.DonHang.madon)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.Laptop.tenlaptop)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.soluong)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.dongia)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
