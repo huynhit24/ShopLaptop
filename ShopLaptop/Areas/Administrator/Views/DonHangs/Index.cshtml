@@ -5,54 +5,80 @@
     Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
 }
 
-<h2>Index</h2>
+<body class="hold-transition sidebar-mini">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.KhachHang.hoten)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.thanhtoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.giaohang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ngaydat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ngaygiao)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KhachHang.hoten)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.thanhtoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.giaohang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ngaydat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ngaygiao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.madon }) |
-            @Html.ActionLink("Details", "Details", new { id=item.madon }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.madon })
-        </td>
-    </tr>
-}
-
-</table>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 style="text-align:center;color:#fff">Admin</h2>
+                            <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","Admins")">+ Tạo mới</a>
+                        </div>
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.KhachHang.hoten)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.thanhtoan)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.giaohang)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.ngaydat)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.ngaygiao)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.KhachHang.hoten)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.thanhtoan)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.giaohang)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.ngaydat)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.ngaygiao)
+                                            </td>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @*@Html.ActionLink("Edit", "Edit", new { id = item.madon }) |
+        @Html.ActionLink("Details", "Details", new { id = item.madon }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.madon })*@
+                                                <a href="@Url.Action("Edit","DonHangs", new { id = item.madon })"><img style="width:40px;height:40px;" src="~/Areas/Administrator/Data/images/seo.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa" /></a>
+                                                <a href="@Url.Action("Details","DonHangs", new { id = item.madon })"><img style="width:40px;height:40px;" src="~/Areas/Administrator/Data/images/eye.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Xem" /></a>
+                                                <a href="@Url.Action("Delete","DonHangs", new { id = item.madon })"><img style="width:40px;height:40px;" src="~/Areas/Administrator/Data/images/delete.png" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
