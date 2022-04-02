@@ -27,10 +27,13 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center" style="vertical-align:middle">
+                                            @Html.DisplayNameFor(model => model.UserAdmin)
+                                        </th>
+                                        <th class="text-center" style="vertical-align:middle">
                                             @Html.DisplayNameFor(model => model.PassAdmin)
                                         </th>
                                         <th class="text-center" style="vertical-align:middle">
-                                            @Html.DisplayNameFor(model => model.hoten)
+                                            @Html.DisplayName("Họ tên")
                                         </th>
                                         <th class="text-center" style="vertical-align:middle"></th>
                                     </tr>
@@ -39,6 +42,9 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
+                                            <td class="text-center" style="vertical-align:middle">
+                                                @Html.DisplayFor(modelItem => item.UserAdmin)
+                                            </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @Html.DisplayFor(modelItem => item.PassAdmin)
                                             </td>
