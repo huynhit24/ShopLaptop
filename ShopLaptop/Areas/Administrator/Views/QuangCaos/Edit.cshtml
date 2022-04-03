@@ -39,8 +39,48 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.hinhnen, "", new { @class = "text-danger" })
+                    <input type="file" name="fileUpload" id="fileUpload" accept="image/*"
+                           style="display:none;" />
+                    <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+                    <img src="~/Content/images/@Model.hinhnen" id="pictureUpload" width="200" height="200"/>
                 </div>
             </div>
+
+            @section upload
+            {
+                <script>
+                    $(function () {
+                        $('#btnUpload').click(function () {
+                            $('#fileUpload').trigger('click');
+                        });
+                    });
+                    $('#fileUpload').change(function () {
+                        if (window.FormData !== undefined) {
+                            var fileUpload = $('#fileUpload').get(0);
+                            var files = fileUpload.files;
+                            var formData = new FormData();
+                            formData.append('file', files[0]);
+
+                            $.ajax(
+                                {
+                                    type: 'POST',
+                                    url: '/QuangCaos/ProcessUpload',
+                                    contentType: false,
+                                    processData: false,
+                                    data: formData,
+                                    success: function (urlImage) {
+
+                                        $('#pictureUpload').attr('src', urlImage);
+                                        $('#hinh').val(urlImage);
+                                    },
+                                    error: function (err) {
+                                        alert('Error ', err.statusText);
+                                    }
+                                });
+                        }
+                    });
+                </script>
+            }
 
             <div class="form-group">
                 @Html.LabelFor(model => model.link, htmlAttributes: new { @class = "control-label col-md-2" })

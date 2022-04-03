@@ -69,5 +69,35 @@ namespace ShopLaptop.Models
         {
             return data.QuangCaos.Where(n => n.trangthai == true).ToList();
         }
+
+        public decimal LoiNhuan()
+        {
+            decimal money = 0;
+            decimal? temp = 0;
+            foreach(var item in data.ChiTietDonHangs)
+            {
+                temp = item.soluong * item.dongia;
+            }
+            money = (decimal)temp;
+            return money;
+        }
+
+        public int DemHoaDon()
+        {
+            int count = data.DonHangs.Count();
+            return count;
+        }
+
+        public int DemKhachHang()
+        {
+            int count = data.KhachHangs.Count();
+            return count;
+        }
+
+        public int DemSanPhamBan()
+        {
+            int count = data.Laptops.Where(n => n.trangthai == true).Count();
+            return count;
+        }
     }
 }

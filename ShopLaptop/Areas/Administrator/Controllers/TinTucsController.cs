@@ -63,6 +63,7 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]// mới thêm vô
         public ActionResult Create([Bind(Include = "matin,tieude,hinhnen,tomtat,slug,noidung,luotxem,ngaycapnhat,xuatban,machude")] TinTuc tinTuc)
         {
             if (Session["taikhoanadmin"] == null)
@@ -168,6 +169,16 @@ namespace ShopLaptop.Areas.Administrator.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+            file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
+            return file.FileName;
         }
     }
 }

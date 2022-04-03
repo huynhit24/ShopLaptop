@@ -88,10 +88,12 @@
                                                 @Html.DisplayFor(modelItem => item.tenlaptop)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.giaban)
+                                                @*@Html.DisplayFor(modelItem => item.giaban)*@
+                                                <p> @item.giaban.GetValueOrDefault().ToString("#,##") đ</p>
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.mota)
+                                                @*@Html.DisplayFor(modelItem => item.mota)*@
+                                                <p>@item.mota ...</p>
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 <img src="~/Content/images/@Html.DisplayFor(modelItem => item.hinh)" alt="No image" width="100" height="100"/>                                              

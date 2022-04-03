@@ -1,7 +1,10 @@
 ﻿
+@using ShopLaptop.Models
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
+    HomeModel home = new HomeModel();
 }
 <!-- Favicon -->
 <link rel="shortcut icon" href="~/Areas/Administrator/Data/assets/images/logo/favicon.png">
@@ -22,8 +25,8 @@
                                 <i class="anticon anticon-dollar"></i>
                             </div>
                             <div class="m-l-15">
-                                <h2 class="m-b-0">$23,523</h2>
-                                <p class="m-b-0 text-muted">Profit</p>
+                                <h3 class="m-b-0">@home.LoiNhuan().ToString("#,##") đ</h3>
+                                <p class="m-b-0 text-muted">Lợi nhuận</p>
                             </div>
                         </div>
                     </div>
@@ -34,11 +37,11 @@
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="avatar avatar-icon avatar-lg avatar-cyan">
-                                <i class="anticon anticon-line-chart"></i>
+                                <i class="anticon anticon-laptop"></i>
                             </div>
                             <div class="m-l-15">
-                                <h2 class="m-b-0">+ 17.21%</h2>
-                                <p class="m-b-0 text-muted">Growth</p>
+                                <h2 class="m-b-0">@home.DemSanPhamBan().ToString("#,##")</h2>
+                                <p class="m-b-0 text-muted">Laptop</p>
                             </div>
                         </div>
                     </div>
@@ -52,8 +55,8 @@
                                 <i class="anticon anticon-profile"></i>
                             </div>
                             <div class="m-l-15">
-                                <h2 class="m-b-0">3,685</h2>
-                                <p class="m-b-0 text-muted">Orders</p>
+                                <h3 class="m-b-0">@home.DemHoaDon().ToString("#,##")</h3>
+                                <p class="m-b-0 text-muted">Hóa đơn</p>
                             </div>
                         </div>
                     </div>
@@ -67,8 +70,8 @@
                                 <i class="anticon anticon-user"></i>
                             </div>
                             <div class="m-l-15">
-                                <h2 class="m-b-0">1,832</h2>
-                                <p class="m-b-0 text-muted">Customers</p>
+                                <h3 class="m-b-0">@home.DemKhachHang().ToString("#,##")</h3>
+                                <p class="m-b-0 text-muted">Khách hàng</p>
                             </div>
                         </div>
                     </div>
