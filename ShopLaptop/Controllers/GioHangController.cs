@@ -122,7 +122,7 @@ namespace ShopLaptop.Controllers
             }
             if (Session["GioHang"] == null)
             {
-                return RedirectToAction("List", "Sach");
+                return RedirectToAction("Index", "Home");
             }
             List<GioHang> lstGiohang = Laygiohang();
             ViewBag.Tongsoluong = TongSoLuong();

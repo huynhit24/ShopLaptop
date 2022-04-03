@@ -25,6 +25,20 @@ namespace ShopLaptop.Controllers
             return View();
         }
 
+        public ActionResult DonHangDaMua()
+        {
+            if(Session["TaiKhoan"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["TaiKhoan"];
+                List<DonHang> list = kh.DonHangs.ToList();
+                return View(list);
+            }
+            else
+            {
+                return RedirectToAction("GioHang","GioHang");
+            }
+        }
+
         [HttpGet]
         public ActionResult Contact()
         {
@@ -127,7 +141,7 @@ namespace ShopLaptop.Controllers
         {
             if (page == null) page = 1;
             var all_blog = (from s in data.TinTucs select s).OrderBy(m => m.matin).Where(n => n.machude == id && n.xuatban == true);
-            int pageSize = 3;
+            int pageSize = 9;
             int pageNum = page ?? 1;
             return View(all_blog.ToPagedList(pageNum, pageSize));
         }

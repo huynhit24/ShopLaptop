@@ -17,30 +17,45 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // GET: Administrator/TinTucs
         public ActionResult Index()
         {
-            var tinTucs = db.TinTucs.Include(t => t.ChuDe);
-            return View(tinTucs.ToList());
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                var tinTucs = db.TinTucs.Include(t => t.ChuDe);
+                return View(tinTucs.ToList());
+            }
         }
 
         // GET: Administrator/TinTucs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TinTuc tinTuc = db.TinTucs.Find(id);
+                if (tinTuc == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tinTuc);
             }
-            TinTuc tinTuc = db.TinTucs.Find(id);
-            if (tinTuc == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tinTuc);
         }
 
         // GET: Administrator/TinTucs/Create
         public ActionResult Create()
         {
-            ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude");
-            return View();
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude");
+                return View();
+            }
         }
 
         // POST: Administrator/TinTucs/Create
@@ -50,31 +65,41 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "matin,tieude,hinhnen,tomtat,slug,noidung,luotxem,ngaycapnhat,xuatban,machude")] TinTuc tinTuc)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.TinTucs.Add(tinTuc);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.TinTucs.Add(tinTuc);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
-            return View(tinTuc);
+                ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
+                return View(tinTuc);
+            }
         }
 
         // GET: Administrator/TinTucs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TinTuc tinTuc = db.TinTucs.Find(id);
+                if (tinTuc == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
+                return View(tinTuc);
             }
-            TinTuc tinTuc = db.TinTucs.Find(id);
-            if (tinTuc == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
-            return View(tinTuc);
         }
 
         // POST: Administrator/TinTucs/Edit/5
@@ -82,31 +107,42 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]// mới thêm vô
         public ActionResult Edit([Bind(Include = "matin,tieude,hinhnen,tomtat,slug,noidung,luotxem,ngaycapnhat,xuatban,machude")] TinTuc tinTuc)
         {
-            if (ModelState.IsValid)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                db.Entry(tinTuc).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tinTuc).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
+                return View(tinTuc);
             }
-            ViewBag.machude = new SelectList(db.ChuDes, "machude", "tenchude", tinTuc.machude);
-            return View(tinTuc);
         }
 
         // GET: Administrator/TinTucs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TinTuc tinTuc = db.TinTucs.Find(id);
+                if (tinTuc == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tinTuc);
             }
-            TinTuc tinTuc = db.TinTucs.Find(id);
-            if (tinTuc == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tinTuc);
         }
 
         // POST: Administrator/TinTucs/Delete/5
@@ -114,10 +150,15 @@ namespace ShopLaptop.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TinTuc tinTuc = db.TinTucs.Find(id);
-            db.TinTucs.Remove(tinTuc);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["taikhoanadmin"] == null)
+                return RedirectToAction("Login", "MainPage");
+            else
+            {
+                TinTuc tinTuc = db.TinTucs.Find(id);
+                db.TinTucs.Remove(tinTuc);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)

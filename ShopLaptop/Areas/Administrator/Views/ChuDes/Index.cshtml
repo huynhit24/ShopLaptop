@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h2 style="text-align:center;color:#fff">Admin</h2>
-                            <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","ChuDes")">+ Tạo mới</a>
+                            <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","ChuDes")"><img src="~/Content/images/contract.png" width="20" height="20" /> Tạo mới</a>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -49,7 +49,7 @@
                                                 @Html.DisplayFor(modelItem => item.slug)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.hinh)
+                                                <img src="~/Content/images/@Html.DisplayFor(modelItem => item.hinh)" width="100" height="100" alt="No image"/>                                               
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.machude }) |

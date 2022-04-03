@@ -9,6 +9,7 @@
 
     CommonFields.id = Model.malaptop;
 }
+
 <!-- Product section-->
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
@@ -76,12 +77,51 @@
                         <i class="fa fa-shopping-bag me-1"></i>
                         Mua thêm
                     </a>
+
                     <a class="zalo-share-button" data-href="" data-oaid="579745863508352884" data-layout="4" data-color="blue" data-customize="false" style="margin-left:14px"></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<section class="py-5">
+
+    <div class="container px-4 px-lg-5 my-5 accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button style="background-color: red; color: white" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Thuộc tính khác MetaLaptop (nếu có*)
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Thuộc tính</th>
+                                <th scope="col">Mô tả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in home.GetListMetaLaptopTheoLaptop(Model.malaptop))
+                            {
+                                <tr>
+                                    <td>@item.keymeta</td>
+                                    <td>@item.valuemeta</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
@@ -103,63 +143,63 @@
                             <h2><u>Xếp hạng & Đánh giá</u></h2>
                         </div>
                         @*<div class="col-12">
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="row">
-                                <div class="col-12 average-rating">
-                                    4.1
+                                <div class="row">
+                                    <div class="col-sm-4 text-center">
+                                        <div class="row">
+                                            <div class="col-12 average-rating">
+                                                4.1
+                                            </div>
+                                            <div class="col-12">
+                                                of 100 reviews
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <ul class="rating-list mt-3">
+                                            <li>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                                </div>
+                                                <div class="rating-progress-label">
+                                                    5<i class="fas fa-star ms-1"></i>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                                                </div>
+                                                <div class="rating-progress-label">
+                                                    4<i class="fas fa-star ms-1"></i>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+                                                </div>
+                                                <div class="rating-progress-label">
+                                                    3<i class="fas fa-star ms-1"></i>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 7%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">7%</div>
+                                                </div>
+                                                <div class="rating-progress-label">
+                                                    2<i class="fas fa-star ms-1"></i>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 3%;" aria-valuenow="3" aria-valuemin="3" aria-valuemax="100">3%</div>
+                                                </div>
+                                                <div class="rating-progress-label">
+                                                    1<i class="fas fa-star ms-1"></i>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-12">
-                                    of 100 reviews
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <ul class="rating-list mt-3">
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-                                    </div>
-                                    <div class="rating-progress-label">
-                                        5<i class="fas fa-star ms-1"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
-                                    </div>
-                                    <div class="rating-progress-label">
-                                        4<i class="fas fa-star ms-1"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
-                                    </div>
-                                    <div class="rating-progress-label">
-                                        3<i class="fas fa-star ms-1"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 7%;" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">7%</div>
-                                    </div>
-                                    <div class="rating-progress-label">
-                                        2<i class="fas fa-star ms-1"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar" style="width: 3%;" aria-valuenow="3" aria-valuemin="3" aria-valuemax="100">3%</div>
-                                    </div>
-                                    <div class="rating-progress-label">
-                                        1<i class="fas fa-star ms-1"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>*@
+                            </div>*@
                     </div>
                     <!-- Rating -->
 
@@ -176,31 +216,31 @@
                         </div>
                         <div class="col-12">
                             @*@using (Html.BeginForm())
-                            {
-                                @Html.AntiForgeryToken()
-                                <div class="mb-3">
-                                    <textarea name="ten" class="form-control" placeholder="Họ tên..."></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea name="noidung" class="form-control" placeholder="Thêm đánh giá..."></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <p class="text-hide" name="malaptop">@Model.malaptop</p>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex ratings justify-content-end flex-row-reverse">
-                                        <input type="radio" value="5" name="vote" id="rating-5"><label for="rating-5"></label>
-                                        <input type="radio" value="4" name="vote" id="rating-4"><label for="rating-4"></label>
-                                        <input type="radio" value="3" name="vote" id="rating-3"><label for="rating-3"></label>
-                                        <input type="radio" value="2" name="vote" id="rating-2"><label for="rating-2"></label>
-                                        <input type="radio" value="1" name="vote" id="rating-1" checked><label for="rating-1"></label>
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="mb-3">
+                                        <textarea name="ten" class="form-control" placeholder="Họ tên..."></textarea>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-outline-dark">Gửi</button>
-                                </div>
-                            }*@
-                            @Html.Action("NhanXet","Home")
+                                    <div class="mb-3">
+                                        <textarea name="noidung" class="form-control" placeholder="Thêm đánh giá..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <p class="text-hide" name="malaptop">@Model.malaptop</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex ratings justify-content-end flex-row-reverse">
+                                            <input type="radio" value="5" name="vote" id="rating-5"><label for="rating-5"></label>
+                                            <input type="radio" value="4" name="vote" id="rating-4"><label for="rating-4"></label>
+                                            <input type="radio" value="3" name="vote" id="rating-3"><label for="rating-3"></label>
+                                            <input type="radio" value="2" name="vote" id="rating-2"><label for="rating-2"></label>
+                                            <input type="radio" value="1" name="vote" id="rating-1" checked><label for="rating-1"></label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-outline-dark">Gửi</button>
+                                    </div>
+                                }*@
+                            @Html.Action("NhanXet", "Home")
                         </div>
                     </div>
                     <!-- Add Review -->
@@ -211,7 +251,7 @@
                         </div>
                     </div>
 
-                    @Html.Action("Comment","Home")
+                    @Html.Action("Comment", "Home")
 
                 </div>
             </div>
