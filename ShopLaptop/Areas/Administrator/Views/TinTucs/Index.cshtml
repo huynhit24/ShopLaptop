@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h2 style="text-align:center;color:#fff">Admin</h2>
+                            <h2 style="text-align:center;color:#fff">Tin tức</h2>
                             <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","TinTucs")"><img src="~/Content/images/contract.png" width="20" height="20" /> Tạo mới</a>
                         </div>
                         <div class="card-body">
@@ -86,7 +86,15 @@
                                                 @Html.DisplayFor(modelItem => item.ngaycapnhat)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.xuatban)
+                                                @*@Html.DisplayFor(modelItem => item.xuatban)*@
+                                                @if (item.xuatban == true)
+                                                {
+                                                    <p class="btn btn-success"><i class="fa fa-check-square"></i> Đã xuất bản</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="btn btn-warning"><i class="fa fa-drafting-compass"></i> Lưu nháp</p>
+                                                }
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.matin }) |

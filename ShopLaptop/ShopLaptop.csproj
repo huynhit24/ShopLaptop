@@ -2655,6 +2655,8 @@
     <Content Include="Content\css\phonerang.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\acer.png" />
+    <Content Include="Content\images\asus.png" />
     <Content Include="Content\images\atm-payment.jpg" />
     <Content Include="Content\images\back-to-top.png" />
     <Content Include="Content\images\banner-cellphone.jpg" />
@@ -2673,12 +2675,14 @@
     <Content Include="Content\images\dang-ky-bo-cong-thuong.png" />
     <Content Include="Content\images\dat-hang-thanh-cong.png" />
     <Content Include="Content\images\dathangthanhcong.png" />
+    <Content Include="Content\images\dell.png" />
     <Content Include="Content\images\dependabot.png" />
     <Content Include="Content\images\ducdat.png" />
     <Content Include="Content\images\Florentino.jpg" />
     <Content Include="Content\images\forward.png" />
     <Content Include="Content\images\github.png" />
     <Content Include="Content\images\hacker.png" />
+    <Content Include="Content\images\hp.png" />
     <Content Include="Content\images\huong-dan-cai-win-10.png" />
     <Content Include="Content\images\icon-books.png" />
     <Content Include="Content\images\icon-gift.png" />
@@ -2708,9 +2712,11 @@
     <Content Include="Content\images\laptop %287%29.jpg" />
     <Content Include="Content\images\laptop %288%29.jpg" />
     <Content Include="Content\images\laptop %289%29.jpg" />
+    <Content Include="Content\images\lenovo.png" />
     <Content Include="Content\images\log-out.png" />
     <Content Include="Content\images\logo-momo.png" />
     <Content Include="Content\images\master-card-payment.jpg" />
+    <Content Include="Content\images\msi.png" />
     <Content Include="Content\images\no-cart.png" />
     <Content Include="Content\images\payoo-payment.jpg" />
     <Content Include="Content\images\quang-cao-shope.png" />

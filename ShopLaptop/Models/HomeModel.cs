@@ -67,7 +67,7 @@ namespace ShopLaptop.Models
 
         public List<QuangCao> GetListQuangCao()
         {
-            return data.QuangCaos.ToList();
+            return data.QuangCaos.Where(n => n.trangthai == true).ToList();
         }
     }
 }

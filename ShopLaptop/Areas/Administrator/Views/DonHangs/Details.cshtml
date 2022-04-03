@@ -5,55 +5,73 @@
     Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container container-fluid">
+    <h2>Details</h2>
 
-<div>
-    <h4>DonHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.KhachHang.hoten)
-        </dt>
+    <div>
+        <h4>DonHang</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.KhachHang.hoten)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.KhachHang.hoten)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.KhachHang.hoten)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.thanhtoan)
-        </dt>
+            <dt>
+                @*@Html.DisplayNameFor(model => model.thanhtoan)*@
+                @if (Model.thanhtoan == true)
+                {
+                    <p class="btn btn-success"><i class="fa fa-check"></i> Đã thanh toán</p>
+                }
+                else
+                {
+                    <p class="btn btn-warning"><i class="fa fa-money-bill"></i> Chưa thanh toán</p>
+                }
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.thanhtoan)
-        </dd>
+            <dd>
+                @*@Html.DisplayFor(model => model.thanhtoan)*@
+                @if (Model.giaohang == true)
+                {
+                    <p style="background-color: rgb(11 211 239 / 0.85);" class="btn"><i class="fa fa-check-circle-o"></i> Đã giao</p>
+                }
+                else
+                {
+                    <p class="btn btn-danger"><i class="fa fa-truck"></i> Đang giao hàng</p>
+                }
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.giaohang)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.giaohang)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.giaohang)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.giaohang)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ngaydat)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ngaydat)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ngaydat)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ngaydat)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ngaygiao)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ngaygiao)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ngaygiao)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ngaygiao)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.madon }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.madon }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

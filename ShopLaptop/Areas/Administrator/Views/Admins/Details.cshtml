@@ -5,31 +5,33 @@
     Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container container-fluid">
+    <h2>Details</h2>
 
-<div>
-    <h4>Admin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PassAdmin)
-        </dt>
+    <div>
+        <h4>Admin</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PassAdmin)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PassAdmin)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PassAdmin)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.hoten)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.hoten)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.hoten)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.hoten)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserAdmin }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserAdmin }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

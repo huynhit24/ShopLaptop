@@ -5,6 +5,25 @@
     Layout = "~/Areas/Administrator/Views/Shared/_LayoutAdministrator.cshtml";
 }
 
+<script src="~/Plugins/ckeditor/ckeditor.js"></script>
+
+@section jsFooter{
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#Image').val(url);
+            };
+            finder.popup();
+        })
+
+        var editor = CKEDITOR.replace('noidung', {
+            customConfig: '/Plugin/ckeditor/config.js',
+        });
+    </script>
+}
+
 <div class="container container-fluid">
     <h2>Tạo</h2>
 
@@ -27,7 +46,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.hinhnen, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" }, id = "Image" })
+                    <button class="btn-select-img btn-success" id="btnSelectImage"> Chọn ảnh </button>
                     @Html.ValidationMessageFor(model => model.hinhnen, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -52,7 +72,7 @@
                 @Html.LabelFor(model => model.noidung, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.noidung, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.noidung, "", new { @class = "text-danger" })
+                    @*@Html.ValidationMessageFor(model => model.noidung, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 
