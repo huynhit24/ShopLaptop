@@ -45,6 +45,12 @@ namespace ShopLaptop.Models
             return list;
         }
 
+        public List<MetaLaptop> GetListMetaLaptopTheoLaptop(int? id)
+        {
+            List<MetaLaptop> list = data.MetaLaptops.Where(n => n.malaptop == id).ToList();
+            return list;
+        }
+
         public List<Hang> GetListHang()
         {
             return data.Hangs.ToList();
