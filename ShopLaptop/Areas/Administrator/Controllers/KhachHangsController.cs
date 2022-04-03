@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShopLaptop.EF;
+using ShopLaptop.Common;
 
 namespace ShopLaptop.Areas.Administrator.Controllers
 {
@@ -69,6 +70,7 @@ namespace ShopLaptop.Areas.Administrator.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    khachHang.matkhau = CommonFields.getStringSHA256Hash(khachHang.matkhau).Substring(0, 32);
                     db.KhachHangs.Add(khachHang);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -112,6 +114,7 @@ namespace ShopLaptop.Areas.Administrator.Controllers
                 if (ModelState.IsValid)
                 {
                     db.Entry(khachHang).State = EntityState.Modified;
+                    khachHang.matkhau = CommonFields.getStringSHA256Hash(khachHang.matkhau).Substring(0, 32);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }

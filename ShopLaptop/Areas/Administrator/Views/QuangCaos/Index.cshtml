@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h2 style="text-align:center;color:#fff">Admin</h2>
+                            <h2 style="text-align:center;color:#fff">Quảng cáo</h2>
                             <a class="glass-button btn-outline-danger" style="background-color: rgb(232 221 13 / 0.48)" href="@Url.Action("Create","QuangCaos")"><img src="~/Content/images/contract.png" width="20" height="20" /> Tạo mới</a>
                         </div>
                         <div class="card-body">
@@ -73,7 +73,15 @@
                                                 @Html.DisplayFor(modelItem => item.ngayhethan)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.trangthai)
+                                                @*@Html.DisplayFor(modelItem => item.trangthai)*@
+                                                @if (item.trangthai == true)
+                                                {
+                                                    <p style="background-color: rgb(7 98 6 / 0.75);" class="btn text-white"><i class="fa fa-check"></i> Kích hoạt</p>
+                                                }
+                                                else
+                                                {
+                                                    <p style="background-color: #f70bf2" class="btn text-white"><i class="fa fa-eye-dropper"></i> Chưa duyệt</p>
+                                                }
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.maqc }) |

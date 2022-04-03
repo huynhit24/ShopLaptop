@@ -143,15 +143,15 @@ namespace ShopLaptop.Controllers
             dh.ngaydat = DateTime.Now;
             dh.ngaygiao = DateTime.Parse(ngaygiao);
             dh.giaohang = false;
-            //dh.thanhtoan = false;
-            if ((bool)Session["thanhtoan"] == true)
+            dh.thanhtoan = false;
+            /*if ((bool)Session["thanhtoan"] == true)
             {
                 dh.thanhtoan = true;
             }
             else
             {
                 dh.thanhtoan = false;
-            }
+            }*/
 
 
             data.DonHangs.InsertOnSubmit(dh);

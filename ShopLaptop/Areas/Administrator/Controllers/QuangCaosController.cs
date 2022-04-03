@@ -163,5 +163,14 @@ namespace ShopLaptop.Areas.Administrator.Controllers
             }
             base.Dispose(disposing);
         }
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+            file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
+            return file.FileName;
+        }
     }
 }

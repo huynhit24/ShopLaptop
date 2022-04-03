@@ -141,7 +141,7 @@
 
     }
 </table>
-<script src="https://www.paypal.com/sdk/js?client-id=AQqVQ_CYs6ZslpgfK4DICRw8IkB5JE1UdIbcYadS6Zs-15N0_wnUvWdIO9uj6F9jBU8oIIVajnxt8U3I">
+<script src="https://www.paypal.com/sdk/js?client-id=AQp0bP9doGYjWqSNND7itP0-UuuvqfLI8djlLy2QCnVllxwVNusgrhGcpipc4d7F7z_xWsM6ksFp34YI">
 </script>
 <div id="paypal-button-container" class="text-center"></div>
 <script>
@@ -151,7 +151,7 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: @ViewBag.Tongtien;
+                        value: @ViewBag.Tongtien
                     }
                 }]
             });
@@ -162,7 +162,6 @@
                 // This function shows a transaction success message to your buyer.
 
                 alert('Thanh toán Paypal thành công bởi ' + details.payer.name.given_name);
-                @{ bool thanhtoan = true; Session["thanhtoan"] = thanhtoan; }
             });
         }
     }).render('#paypal-button-container');
@@ -174,6 +173,6 @@
         var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
         return dl ?
             XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            XLSX.writeFile(wb, fn || ('DonDatHang.' + (type || 'xlsx')));
     }
 </script>

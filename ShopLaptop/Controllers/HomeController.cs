@@ -27,15 +27,16 @@ namespace ShopLaptop.Controllers
 
         public ActionResult DonHangDaMua()
         {
-            if(Session["TaiKhoan"] != null)
+            if (Session["TaiKhoan"] != null)
             {
                 KhachHang kh = (KhachHang)Session["TaiKhoan"];
-                List<DonHang> list = kh.DonHangs.ToList();
+                /*List<DonHang> list = kh.DonHangs.ToList();*/
+                List<DonHang> list = data.DonHangs.Where(n => n.makh == kh.makh).ToList();
                 return View(list);
             }
             else
             {
-                return RedirectToAction("GioHang","GioHang");
+                return RedirectToAction("GioHang", "GioHang");
             }
         }
 
@@ -61,7 +62,7 @@ namespace ShopLaptop.Controllers
             lh.website = website;
             lh.noidung = noidung;
             lh.trangthai = true;
-            
+
             data.LienHes.InsertOnSubmit(lh);
             data.SubmitChanges();
             return RedirectToAction("Index");
@@ -145,7 +146,7 @@ namespace ShopLaptop.Controllers
             int pageNum = page ?? 1;
             return View(all_blog.ToPagedList(pageNum, pageSize));
         }
-        
+
         public ActionResult ListLaptopTheoSearch(int? page, string SearchString)
         {
             CommonFields.seek = SearchString;

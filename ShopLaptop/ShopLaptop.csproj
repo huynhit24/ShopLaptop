@@ -54,18 +54,44 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.ImageSharp.2.1.0\lib\net472\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.AttributedModel.6.0.0\lib\net461\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -2655,6 +2681,8 @@
     <Content Include="Content\css\phonerang.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\acer.png" />
+    <Content Include="Content\images\asus.png" />
     <Content Include="Content\images\atm-payment.jpg" />
     <Content Include="Content\images\back-to-top.png" />
     <Content Include="Content\images\banner-cellphone.jpg" />
@@ -2673,12 +2701,14 @@
     <Content Include="Content\images\dang-ky-bo-cong-thuong.png" />
     <Content Include="Content\images\dat-hang-thanh-cong.png" />
     <Content Include="Content\images\dathangthanhcong.png" />
+    <Content Include="Content\images\dell.png" />
     <Content Include="Content\images\dependabot.png" />
     <Content Include="Content\images\ducdat.png" />
     <Content Include="Content\images\Florentino.jpg" />
     <Content Include="Content\images\forward.png" />
     <Content Include="Content\images\github.png" />
     <Content Include="Content\images\hacker.png" />
+    <Content Include="Content\images\hp.png" />
     <Content Include="Content\images\huong-dan-cai-win-10.png" />
     <Content Include="Content\images\icon-books.png" />
     <Content Include="Content\images\icon-gift.png" />
@@ -2708,9 +2738,11 @@
     <Content Include="Content\images\laptop %287%29.jpg" />
     <Content Include="Content\images\laptop %288%29.jpg" />
     <Content Include="Content\images\laptop %289%29.jpg" />
+    <Content Include="Content\images\lenovo.png" />
     <Content Include="Content\images\log-out.png" />
     <Content Include="Content\images\logo-momo.png" />
     <Content Include="Content\images\master-card-payment.jpg" />
+    <Content Include="Content\images\msi.png" />
     <Content Include="Content\images\no-cart.png" />
     <Content Include="Content\images\payoo-payment.jpg" />
     <Content Include="Content\images\quang-cao-shope.png" />
