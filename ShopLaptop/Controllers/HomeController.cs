@@ -141,7 +141,7 @@ namespace ShopLaptop.Controllers
         {
             if (page == null) page = 1;
             var all_blog = (from s in data.TinTucs select s).OrderBy(m => m.matin).Where(n => n.machude == id && n.xuatban == true);
-            int pageSize = 3;
+            int pageSize = 9;
             int pageNum = page ?? 1;
             return View(all_blog.ToPagedList(pageNum, pageSize));
         }

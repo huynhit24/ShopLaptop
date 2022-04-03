@@ -30,8 +30,9 @@
             <hr>
             <img src="~/Content/images/@Model.hinhnen" class="img-responsive">
             <hr>
-            @Model.noidung
-
+            <div>
+                @Html.Raw(Model.noidung.ToString())
+            </div>
             <hr>
 
         </div>

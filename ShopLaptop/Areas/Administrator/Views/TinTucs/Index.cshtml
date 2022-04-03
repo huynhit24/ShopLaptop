@@ -76,7 +76,8 @@
                                                 @Html.DisplayFor(modelItem => item.slug)
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
-                                                @Html.DisplayFor(modelItem => item.noidung)
+                                                @*@Html.DisplayFor(modelItem => item.noidung)*@
+                                                <p>@item.noidung.Substring(0,30) ...</p>
                                             </td>
                                             <td class="text-center" style="vertical-align:middle">
                                                 @Html.DisplayFor(modelItem => item.luotxem)
