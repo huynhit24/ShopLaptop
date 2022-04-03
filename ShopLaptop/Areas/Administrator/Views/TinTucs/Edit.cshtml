@@ -39,12 +39,12 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.hinhnen, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" }, id = "Image" })
+                    @Html.EditorFor(model => model.hinhnen, new { htmlAttributes = new { @class = "form-control" }})
                     @Html.ValidationMessageFor(model => model.hinhnen, "", new { @class = "text-danger" })
                     <input type="file" name="fileUpload" id="fileUpload" accept="image/*"
                            style="display:none;" />
                     <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
-                    <img src="~/Content/images/@Model.hinhnen" id="pictureUpload" width="200" height="200"/>
+                    @*<img src="~/Content/images/@Model.hinhnen" id="pictureUpload" width="200" height="200"/>*@
                 </div>
             </div>
             @section upload
