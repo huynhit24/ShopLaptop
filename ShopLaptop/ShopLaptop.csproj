@@ -2689,10 +2689,8 @@
     <Content Include="Content\images\banner-dell.jpg" />
     <Content Include="Content\images\banner-la-gi.jpg" />
     <Content Include="Content\images\banner-laptop-800x300.png" />
-    <Content Include="Content\images\banner-levono-2.jpg" />
     <Content Include="Content\images\banner-levono-2.png" />
     <Content Include="Content\images\banner-levono.png" />
-    <Content Include="Content\images\banner-msi-1.jpg" />
     <Content Include="Content\images\banner-msi-1.png" />
     <Content Include="Content\images\banner-vang.png" />
     <Content Include="Content\images\bot.png" />
@@ -3684,6 +3682,7 @@
     <Content Include="Plugins\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Plugins\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Plugins\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
