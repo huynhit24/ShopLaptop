@@ -1,4 +1,4 @@
-# ShopLaptop
+# ShopLaptop [![Greetings](https://github.com/huynh140/ShopLaptop-1/actions/workflows/greetings.yml/badge.svg)](https://github.com/huynh140/ShopLaptop-1/actions/workflows/greetings.yml)
 Website bán Laptop sử dụng ASP.NET MVC5
 # Link demo
 http://huynhit24-001-site1.btempurl.com/
